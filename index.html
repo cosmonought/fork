@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fork — The Journal of Interchain Theory and Politics</title>
+  <meta name="description" content="Fork is a forthcoming open-access journal of Interchain theory and politics, published by Neta DAO Academy." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;700;900&family=IBM+Plex+Mono:wght@400;500&family=Barlow:wght@300;400&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --ink:   #050505;
+      --paper: #f0ede6;
+      --dim:   #888;
+      --pink:  #C9338A;
+      --blue:  #5B8EF0;
+      --rule:  3px solid #050505;
+      --thin:  1px solid #1a1a1a;
+      --font-display: 'Barlow Condensed', sans-serif;
+      --font-body:    'Barlow', sans-serif;
+      --font-mono:    'IBM Plex Mono', monospace;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--ink);
+      color: var(--paper);
+      font-family: var(--font-body);
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: inherit; text-decoration: none; }
+
+    .grad-text {
+      background: linear-gradient(90deg, #C9338A 0%, #5B8EF0 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    /* ── Nav strip ── */
+    .nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      border-bottom: var(--rule); background: var(--ink);
+      display: flex; align-items: stretch; height: 52px;
+    }
+    .nav-home {
+      font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.1em;
+      text-transform: uppercase; color: var(--dim);
+      display: flex; align-items: center; padding: 0 20px;
+      border-right: var(--rule); transition: color 0.15s;
+    }
+    .nav-home:hover { color: var(--paper); }
+    .nav-title {
+      font-family: var(--font-display); font-size: 18px; font-weight: 900;
+      text-transform: uppercase; letter-spacing: 0.02em;
+      display: flex; align-items: center; padding: 0 24px;
+    }
+    .nav-right {
+      margin-left: auto; display: flex; align-items: stretch;
+    }
+    .nav-right a {
+      font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.08em;
+      text-transform: uppercase; color: var(--dim);
+      display: flex; align-items: center; padding: 0 18px;
+      border-left: var(--rule); transition: color 0.15s;
+    }
+    .nav-right a:hover { color: var(--paper); }
+
+    /* ── Cover — full viewport ── */
+    .cover {
+      min-height: 100vh;
+      display: grid;
+      grid-template-rows: 1fr auto;
+      border-bottom: var(--rule);
+      padding-top: 52px;
+    }
+    .cover-main {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      border-bottom: var(--rule);
+    }
+    .cover-title-panel {
+      padding: 72px 64px;
+      border-right: var(--rule);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+    }
+    .fork-label {
+      font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.14em;
+      text-transform: uppercase; color: var(--dim); margin-bottom: 24px;
+    }
+    .fork-name {
+      font-family: var(--font-display);
+      font-size: clamp(96px, 14vw, 180px);
+      font-weight: 900;
+      text-transform: uppercase;
+      line-height: 0.85;
+      letter-spacing: -0.02em;
+      margin-bottom: 28px;
+    }
+    .fork-subtitle {
+      font-family: var(--font-display);
+      font-size: clamp(18px, 2.5vw, 28px);
+      font-weight: 400;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      color: var(--dim);
+      line-height: 1.3;
+      max-width: 480px;
+    }
+    .cover-info-panel {
+      padding: 72px 64px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+    }
+    .cover-meta {
+      font-family: var(--font-mono); font-size: 10px;
+      color: var(--dim); letter-spacing: 0.06em; text-transform: uppercase;
+      margin-bottom: 32px; line-height: 2;
+    }
+    .cover-meta span { color: var(--paper); }
+    .cover-statement {
+      font-size: 16px; font-weight: 300; color: var(--paper);
+      line-height: 1.8; max-width: 480px; margin-bottom: 40px;
+    }
+    .cover-cta { display: flex; gap: 0; }
+    .btn {
+      font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.08em;
+      text-transform: uppercase; padding: 14px 28px; cursor: pointer;
+      display: inline-flex; align-items: center; gap: 8px;
+      border: var(--rule); transition: all 0.15s;
+    }
+    .btn + .btn { border-left: none; }
+    .btn-primary { background: var(--paper); color: var(--ink); }
+    .btn-primary:hover { background: #d8d5ce; }
+    .btn-outline { background: transparent; color: var(--paper); }
+    .btn-outline:hover { background: #111; }
+
+    /* Issue number bar */
+    .cover-strip {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 16px 64px; border-top: none;
+    }
+    .cover-strip-label {
+      font-family: var(--font-mono); font-size: 10px; color: var(--dim);
+      letter-spacing: 0.1em; text-transform: uppercase;
+    }
+    .cover-strip-status {
+      font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.08em;
+      text-transform: uppercase; padding: 4px 12px; border: 1px solid var(--pink); color: var(--pink);
+    }
+
+    /* ── Manifesto section ── */
+    .section { border-bottom: var(--rule); }
+    .section-inner { padding: 72px 64px; }
+    .section-label {
+      font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.14em;
+      text-transform: uppercase; color: var(--dim); margin-bottom: 20px;
+      display: flex; align-items: center; gap: 12px;
+    }
+    .section-label::before { content: ''; display: block; width: 24px; height: 2px; background: currentColor; flex-shrink: 0; }
+    .manifesto-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 0;
+      border-top: var(--rule);
+    }
+    .manifesto-panel {
+      padding: 48px; border-right: var(--rule);
+    }
+    .manifesto-panel:last-child { border-right: none; }
+    .manifesto-panel:nth-child(n+3) { border-top: var(--rule); }
+    .manifesto-num {
+      font-family: var(--font-mono); font-size: 10px; color: var(--dim);
+      letter-spacing: 0.08em; margin-bottom: 20px; display: block;
+    }
+    .manifesto-heading {
+      font-family: var(--font-display); font-size: 28px; font-weight: 900;
+      text-transform: uppercase; line-height: 1; margin-bottom: 16px;
+    }
+    .manifesto-body { font-size: 14px; color: var(--dim); line-height: 1.75; font-weight: 300; }
+
+    /* ── Scope ── */
+    .scope-grid {
+      display: grid; grid-template-columns: repeat(4, 1fr);
+      border-top: var(--rule);
+    }
+    .scope-item {
+      padding: 32px 28px; border-right: var(--rule);
+    }
+    .scope-item:last-child { border-right: none; }
+    .scope-item h4 {
+      font-family: var(--font-display); font-size: 20px; font-weight: 900;
+      text-transform: uppercase; margin-bottom: 10px;
+    }
+    .scope-item p { font-size: 13px; color: var(--dim); line-height: 1.7; }
+
+    /* ── Submissions form ── */
+    .submissions-grid {
+      display: grid; grid-template-columns: 1fr 1fr;
+      border-top: var(--rule);
+    }
+    .submissions-info { padding: 56px 64px; border-right: var(--rule); }
+    .submissions-form-panel { padding: 56px 64px; }
+    .form-group { margin-bottom: 24px; }
+    .form-label {
+      font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.1em;
+      text-transform: uppercase; color: var(--dim); display: block; margin-bottom: 8px;
+    }
+    .form-input, .form-select, .form-textarea {
+      width: 100%; background: #0d0d0d; border: var(--thin);
+      color: var(--paper); font-family: var(--font-body); font-size: 14px;
+      padding: 12px 14px; outline: none; transition: border-color 0.15s;
+      -webkit-appearance: none;
+    }
+    .form-input:focus, .form-select:focus, .form-textarea:focus { border-color: var(--blue); }
+    .form-textarea { resize: vertical; min-height: 120px; }
+    .form-select { cursor: pointer; }
+    .form-select option { background: #111; }
+    .form-note { font-size: 12px; color: var(--dim); line-height: 1.65; margin-top: 20px; }
+
+    /* ── Footer ── */
+    .footer { border-top: var(--rule); }
+    .footer-inner {
+      display: grid; grid-template-columns: 1fr auto;
+      border-bottom: var(--rule);
+    }
+    .footer-left { padding: 32px 64px; border-right: var(--rule); }
+    .footer-right { padding: 32px 48px; }
+    .footer-name {
+      font-family: var(--font-display); font-size: 24px; font-weight: 900;
+      text-transform: uppercase; margin-bottom: 6px;
+    }
+    .footer-tagline { font-family: var(--font-mono); font-size: 10px; color: var(--dim); letter-spacing: 0.06em; }
+    .footer-links { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+    .footer-links a { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--dim); transition: color 0.15s; }
+    .footer-links a:hover { color: var(--paper); }
+    .footer-bottom { padding: 14px 64px; display: flex; justify-content: space-between; align-items: center; }
+    .footer-copy { font-family: var(--font-mono); font-size: 10px; color: #333; }
+
+    /* ── Animations ── */
+    .reveal { opacity: 0; transform: translateY(12px); transition: opacity 0.5s ease, transform 0.5s ease; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    @media (prefers-reduced-motion: reduce) { .reveal { opacity: 1; transform: none; transition: none; } }
+
+    /* ── Responsive ── */
+    @media (max-width: 900px) {
+      .cover-main { grid-template-columns: 1fr; }
+      .cover-title-panel { border-right: none; border-bottom: var(--rule); padding: 56px 36px; }
+      .cover-info-panel { padding: 48px 36px; }
+      .cover-strip { padding: 14px 36px; }
+      .section-inner { padding: 48px 36px; }
+      .manifesto-grid { grid-template-columns: 1fr; }
+      .manifesto-panel { border-right: none; border-bottom: var(--rule); }
+      .manifesto-panel:last-child { border-bottom: none; }
+      .manifesto-panel:nth-child(n+3) { border-top: none; }
+      .scope-grid { grid-template-columns: 1fr 1fr; }
+      .scope-item:nth-child(2n) { border-right: none; }
+      .scope-item:nth-child(n+3) { border-top: var(--rule); }
+      .submissions-grid { grid-template-columns: 1fr; }
+      .submissions-info { border-right: none; border-bottom: var(--rule); padding: 48px 36px; }
+      .submissions-form-panel { padding: 48px 36px; }
+      .footer-inner { grid-template-columns: 1fr; }
+      .footer-left { border-right: none; border-bottom: var(--rule); padding: 28px 36px; }
+      .footer-right { padding: 28px 36px; }
+      .footer-bottom { padding: 14px 36px; flex-direction: column; gap: 8px; align-items: flex-start; }
+    }
+    @media (max-width: 640px) {
+      .nav-title { display: none; }
+      .fork-name { font-size: clamp(72px, 18vw, 120px); }
+      .scope-grid { grid-template-columns: 1fr; }
+      .scope-item { border-right: none; border-bottom: var(--rule); }
+      .scope-item:last-child { border-bottom: none; }
+      .nav-right a:not(:last-child) { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ── Nav ── -->
+  <nav class="nav">
+    <a href="https://netadao.org" class="nav-home">← Neta DAO</a>
+    <span class="nav-title"><span class="grad-text">Fork</span></span>
+    <div class="nav-right">
+      <a href="#about">About</a>
+      <a href="#scope">Scope</a>
+      <a href="#submissions">Submit</a>
+      <a href="https://academy.netadao.org">Academy ↗</a>
+    </div>
+  </nav>
+
+  <!-- ── Cover ── -->
+  <div class="cover">
+    <div class="cover-main">
+      <div class="cover-title-panel">
+        <p class="fork-label">Journal of Interchain Theory and Politics</p>
+        <h1 class="fork-name"><span class="grad-text">Fork</span></h1>
+        <p class="fork-subtitle">The Journal of<br>Interchain Theory<br>and Politics</p>
+      </div>
+      <div class="cover-info-panel">
+        <div class="cover-meta">
+          Publisher <span>Neta DAO Academy</span><br>
+          Frequency <span>Ongoing — Open Access</span><br>
+          Format <span>Digital, Peer-Reviewed</span><br>
+          Status <span style="color:var(--pink);">Forthcoming</span>
+        </div>
+        <p class="cover-statement">
+          Fork publishes theoretical and critical work on the politics of decentralized systems — governance, sovereignty, finance, and the philosophical questions raised by the Interchain. We take blockchain seriously as a site of political and intellectual contestation, not merely technical innovation.
+        </p>
+        <div class="cover-cta">
+          <a href="#submissions" class="btn btn-primary">Register interest</a>
+          <a href="#about" class="btn btn-outline">About the journal</a>
+        </div>
+      </div>
+    </div>
+    <div class="cover-strip">
+      <span class="cover-strip-label">fork.netadao.org · Published by Neta DAO Academy · <a href="https://netadao.org" style="color:var(--dim);">netadao.org</a></span>
+      <span class="cover-strip-status">Vol. 1 — Forthcoming</span>
+    </div>
+  </div>
+
+  <!-- ── Manifesto / About ── -->
+  <div class="section reveal" id="about">
+    <div class="section-inner">
+      <p class="section-label">About</p>
+    </div>
+    <div class="manifesto-grid">
+      <div class="manifesto-panel">
+        <span class="manifesto-num">01</span>
+        <h2 class="manifesto-heading">The name</h2>
+        <p class="manifesto-body">A fork is the moment when a shared history diverges and two possible futures emerge. In blockchain, it is how communities decide what they value and who they are. We take this to be a description not only of on-chain governance, but of the political moment in which we find ourselves.</p>
+      </div>
+      <div class="manifesto-panel">
+        <span class="manifesto-num">02</span>
+        <h2 class="manifesto-heading">The argument</h2>
+        <p class="manifesto-body">Public blockchains are political institutions, not merely technical ones. They encode rules, distribute power, produce subjects, and make claims about justice. A journal that takes this seriously must be willing to bring the full weight of critical theory, political philosophy, and social science to bear on them.</p>
+      </div>
+      <div class="manifesto-panel">
+        <span class="manifesto-num">03</span>
+        <h2 class="manifesto-heading">The method</h2>
+        <p class="manifesto-body">Fork is interdisciplinary without being undisciplined. We publish rigorous work — theoretical, empirical, historical — that engages the Interchain on its own terms while refusing to treat its technical categories as given. Political economy, psychoanalysis, legal theory, philosophy of technology: all are welcome here.</p>
+      </div>
+      <div class="manifesto-panel">
+        <span class="manifesto-num">04</span>
+        <h2 class="manifesto-heading">The institution</h2>
+        <p class="manifesto-body">Fork is published by Neta DAO Academy, an educational subDAO of Neta DAO — a nonprofit public institution serving the Cosmos/Interchain. The journal is open access, community-governed, and committed to the principle that intellectual life is a public good. No paywalls. No fees to publish.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── Scope ── -->
+  <div class="section reveal" id="scope">
+    <div class="section-inner">
+      <p class="section-label">Scope</p>
+      <h2 style="font-family:var(--font-display);font-size:clamp(32px,4vw,56px);font-weight:900;text-transform:uppercase;line-height:0.95;max-width:700px;">We publish work on the politics, theory, and philosophy of the Interchain.</h2>
+    </div>
+    <div class="scope-grid">
+      <div class="scope-item">
+        <h4>Governance</h4>
+        <p>On-chain and off-chain governance mechanisms, DAO constitutions, voting systems, token-weighted democracy, and the political theory of decentralized decision-making.</p>
+      </div>
+      <div class="scope-item">
+        <h4>Political Economy</h4>
+        <p>Cryptocurrency and monetary theory, tokenomics, DeFi, financialization, surplus value in blockchain systems, and the political economy of the Cosmos ecosystem.</p>
+      </div>
+      <div class="scope-item">
+        <h4>Philosophy</h4>
+        <p>Post-structuralist, psychoanalytic, and critical theory approaches to Web3. Philosophy of technology, sovereignty, constituent power, and the ontology of decentralization.</p>
+      </div>
+      <div class="scope-item">
+        <h4>Law and Rights</h4>
+        <p>Crypto regulation, securities law, smart contract theory, digital sovereignty, and the juridical status of DAOs and blockchain-native organizations.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── Editorial principles ── -->
+  <div class="section reveal">
+    <div style="display:grid;grid-template-columns:1fr 1fr;border-top:var(--rule);">
+      <div style="padding:56px 64px;border-right:var(--rule);">
+        <p class="section-label">Editorial principles</p>
+        <h2 style="font-family:var(--font-display);font-size:40px;font-weight:900;text-transform:uppercase;line-height:1;margin-bottom:24px;">Open.<br>Rigorous.<br>Public.</h2>
+        <p style="font-size:14px;color:var(--dim);line-height:1.75;font-weight:300;">Fork is committed to open access — every article is freely available, forever. We charge no article processing fees. Peer review is double-blind. Editorial decisions are made independently of Neta DAO governance.</p>
+      </div>
+      <div style="padding:56px 64px;">
+        <div style="border-top:1px solid #1a1a1a;padding:24px 0;" >
+          <p style="font-family:var(--font-mono);font-size:10px;color:var(--dim);letter-spacing:0.08em;text-transform:uppercase;margin-bottom:8px;">Article types accepted</p>
+          <p style="font-size:14px;color:var(--paper);line-height:1.8;">Research articles (6,000–12,000 words)<br>Review essays (3,000–6,000 words)<br>Interventions and responses (1,500–3,000 words)<br>Translations with critical introductions<br>Symposia and roundtable discussions</p>
+        </div>
+        <div style="border-top:1px solid #1a1a1a;padding:24px 0;">
+          <p style="font-family:var(--font-mono);font-size:10px;color:var(--dim);letter-spacing:0.08em;text-transform:uppercase;margin-bottom:8px;">Languages</p>
+          <p style="font-size:14px;color:var(--paper);">English (primary) · Translations welcome with English abstract</p>
+        </div>
+        <div style="border-top:1px solid #1a1a1a;padding:24px 0 0;">
+          <p style="font-family:var(--font-mono);font-size:10px;color:var(--dim);letter-spacing:0.08em;text-transform:uppercase;margin-bottom:8px;">Citation style</p>
+          <p style="font-size:14px;color:var(--paper);">Chicago author-date · Author-title for humanities submissions</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── Submissions ── -->
+  <div class="section reveal" id="submissions">
+    <div class="submissions-grid">
+      <div class="submissions-info">
+        <p class="section-label">Register Interest</p>
+        <h2 style="font-family:var(--font-display);font-size:48px;font-weight:900;text-transform:uppercase;line-height:1;margin-bottom:24px;">Submit or<br>stay informed.</h2>
+        <p style="font-size:15px;color:var(--dim);line-height:1.75;font-weight:300;margin-bottom:24px;">
+          Fork is not yet accepting formal submissions — the journal is forthcoming. Register your interest to receive a call for papers when we open, or to be considered for the editorial board.
+        </p>
+        <p style="font-size:15px;color:var(--dim);line-height:1.75;font-weight:300;margin-bottom:24px;">
+          In the meantime, engage with <a href="https://academy.netadao.org" style="color:var(--blue);">Neta DAO Academy ↗</a> and the Coining Reason seminar series, which provides the intellectual context for the journal's direction.
+        </p>
+        <p style="font-family:var(--font-mono);font-size:10px;color:#444;line-height:1.8;">
+          Questions: <a href="https://discord.com/invite/gvjC86WXC2" target="_blank" rel="noopener" style="color:var(--blue);">Neta DAO Discord ↗</a><br>
+          GitHub: <a href="https://github.com/NetaDAOAcademy" target="_blank" rel="noopener" style="color:var(--blue);">NetaDAOAcademy ↗</a>
+        </p>
+      </div>
+      <div class="submissions-form-panel">
+        <form id="interest-form" onsubmit="handleSubmit(event)">
+          <div class="form-group">
+            <label class="form-label" for="name">Name</label>
+            <input class="form-input" type="text" id="name" name="name" placeholder="Your name" required />
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="email">Email</label>
+            <input class="form-input" type="email" id="email" name="email" placeholder="your@email.com" required />
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="interest">Interest</label>
+            <select class="form-select" id="interest" name="interest">
+              <option value="submissions">Submitting work</option>
+              <option value="editorial">Editorial board</option>
+              <option value="review">Peer reviewing</option>
+              <option value="updates">General updates only</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="research">Research area (optional)</label>
+            <textarea class="form-textarea" id="research" name="research" placeholder="Brief description of your work or research area…" style="min-height:90px;"></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center;">Register interest →</button>
+          <p class="form-note">Your information will only be used to contact you about Fork. We do not share data with third parties. This form opens a mailto link — no server required.</p>
+        </form>
+        <div id="form-success" style="display:none;padding:32px;border:1px solid #5bf08c;margin-top:0;">
+          <p style="font-family:var(--font-mono);font-size:12px;color:#5bf08c;letter-spacing:0.06em;text-transform:uppercase;margin-bottom:12px;">Registered</p>
+          <p style="font-size:14px;color:var(--dim);line-height:1.7;">Thank you. We'll be in touch when Fork opens submissions. In the meantime, join the community at the <a href="https://discord.com/invite/gvjC86WXC2" target="_blank" rel="noopener" style="color:var(--blue);">Neta DAO Discord</a>.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── Footer ── -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-left">
+        <p class="footer-name"><span class="grad-text">Fork</span></p>
+        <p class="footer-tagline">The Journal of Interchain Theory and Politics</p>
+        <p style="font-family:var(--font-mono);font-size:10px;color:#333;margin-top:8px;">Published by Neta DAO Academy · <a href="https://netadao.org" style="color:#444;">netadao.org</a></p>
+      </div>
+      <div class="footer-right">
+        <ul class="footer-links">
+          <li><a href="#about">About</a></li>
+          <li><a href="#scope">Scope</a></li>
+          <li><a href="#submissions">Register interest</a></li>
+          <li><a href="https://academy.netadao.org">Neta DAO Academy ↗</a></li>
+          <li><a href="https://netadao.org">Neta DAO ↗</a></li>
+          <li><a href="https://github.com/NetaDAOAcademy" target="_blank" rel="noopener">GitHub ↗</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-copy">© Neta DAO Academy. Open access. No rights reserved.</p>
+      <p class="footer-copy">fork.netadao.org</p>
+    </div>
+  </footer>
+
+  <script>
+    // Scroll reveal
+    const revealEls = document.querySelectorAll('.reveal');
+    if (revealEls.length) {
+      const obs = new IntersectionObserver(entries => {
+        entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
+      }, { threshold: 0.08 });
+      revealEls.forEach(el => obs.observe(el));
+    }
+
+    // Form — mailto fallback (no server needed for GitHub Pages)
+    function handleSubmit(e) {
+      e.preventDefault();
+      const name     = document.getElementById('name').value;
+      const email    = document.getElementById('email').value;
+      const interest = document.getElementById('interest').value;
+      const research = document.getElementById('research').value;
+      const body = encodeURIComponent(
+        `Name: ${name}\nEmail: ${email}\nInterest: ${interest}\nResearch area: ${research || 'Not provided'}`
+      );
+      // Open mailto as a fallback — in production replace with a form endpoint
+      window.location.href = `mailto:academy@netadao.org?subject=Fork Journal — Interest Registration&body=${body}`;
+      document.getElementById('interest-form').style.display = 'none';
+      document.getElementById('form-success').style.display = 'block';
+    }
+  </script>
+</body>
+</html>
