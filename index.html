@@ -282,7 +282,7 @@
   <!-- ── Nav ── -->
   <nav class="nav">
     <a href="https://netadao.org" class="nav-home">← Neta DAO</a>
-    <span class="nav-title"><span class="grad-text">Fork</span></span>
+    <span class="nav-title" style="font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:20px;text-transform:uppercase;display:flex;align-items:center;padding:0 24px;"><span class="grad-text">Fork</span></span>
     <div class="nav-right">
       <a href="#about">About</a>
       <a href="#scope">Scope</a>
@@ -296,7 +296,45 @@
     <div class="cover-main">
       <div class="cover-title-panel">
         <p class="fork-label">Journal of Interchain Theory and Politics</p>
-        <h1 class="fork-name"><span class="grad-text">Fork</span></h1>
+        <!-- Bisected FORK logo: letters cut diagonally, halves offset -->
+        <svg viewBox="0 0 480 200" width="480" height="200" xmlns="http://www.w3.org/2000/svg" style="max-width:100%;margin-bottom:20px;display:block;">
+          <defs>
+            <!-- Top half clip: above the fault line -->
+            <clipPath id="top-half">
+              <polygon points="0,0 480,0 480,85 0,115"/>
+            </clipPath>
+            <!-- Bottom half clip: below the fault line, shifted right -->
+            <clipPath id="bot-half">
+              <polygon points="12,120 492,90 492,220 12,220"/>
+            </clipPath>
+            <!-- Gradient for the gap -->
+            <linearGradient id="gap-grad" x1="0" y1="0" x2="1" y2="0">
+              <stop offset="0%" stop-color="#C9338A"/>
+              <stop offset="100%" stop-color="#5B8EF0"/>
+            </linearGradient>
+          </defs>
+
+          <!-- The diagonal gradient gap / fault line -->
+          <polygon points="0,113 480,83 480,92 0,122" fill="url(#gap-grad)" opacity="0.9"/>
+
+          <!-- Top half of FORK — clipped above fault line -->
+          <text clip-path="url(#top-half)"
+            x="0" y="168"
+            font-family="'Barlow Condensed', sans-serif"
+            font-weight="900"
+            font-size="168"
+            fill="#f0ede6"
+            letter-spacing="-4">FORK</text>
+
+          <!-- Bottom half of FORK — clipped below fault line, shifted right + down -->
+          <text clip-path="url(#bot-half)"
+            x="12" y="178"
+            font-family="'Barlow Condensed', sans-serif"
+            font-weight="900"
+            font-size="168"
+            fill="#f0ede6"
+            letter-spacing="-4">FORK</text>
+        </svg>
         <p class="fork-subtitle">The Journal of<br>Interchain Theory<br>and Politics</p>
       </div>
       <div class="cover-info-panel">
@@ -452,6 +490,47 @@
     </div>
   </div>
 
+  <!-- ── Editor's Statement ── -->
+  <div class="section reveal" id="statement">
+    <div style="display:grid;grid-template-columns:280px 1fr;border-top:var(--rule);">
+
+      <!-- Left: label column -->
+      <div style="padding:56px 48px;border-right:var(--rule);position:sticky;top:52px;align-self:start;">
+        <p class="section-label">Inaugural Issue</p>
+        <h2 style="font-family:var(--font-display);font-size:32px;font-weight:900;text-transform:uppercase;line-height:1;margin-bottom:20px;">Editor&#8217;s<br>Statement</h2>
+        <p style="font-family:var(--font-mono);font-size:10px;color:var(--dim);line-height:1.8;letter-spacing:0.04em;">Vol. 1<br>Forthcoming<br>Fork: The Journal of<br>Interchain Theory<br>and Politics</p>
+        <div style="margin-top:28px;width:40px;height:2px;background:linear-gradient(90deg,#C9338A,#5B8EF0);"></div>
+      </div>
+
+      <!-- Right: essay text -->
+      <div style="padding:56px 64px;">
+        <h3 style="font-family:var(--font-display);font-size:clamp(20px,2.5vw,30px);font-weight:900;text-transform:uppercase;line-height:1.1;margin-bottom:36px;max-width:580px;">The Event of Web3 and the Question Concerning Technology</h3>
+
+        <p style="font-size:16px;line-height:1.85;margin-bottom:24px;color:#d8d4cc;font-weight:300;">In the philosophical terminology of Alain Badiou, an event is not simply whatever happens to happen in the course of time, but a cleft, disunion, or inconsistency of time with itself — moments when, as Hamlet put it, &#8220;the time is out-of-joint&#8221; — when the membrane between the world in which we live and an alternative life-world (or worlds) thin to the point of suppurating disorienting excesses, gaps, and remainders. Amidst this inter(in)animation of worlds, a decision must be rendered: an Event demands fidelity to Truth, that is, to the subjective construction of Truth, and to the truth of the subject&#8217;s constructability.</p>
+
+        <p style="font-size:16px;line-height:1.85;margin-bottom:24px;color:#d8d4cc;font-weight:300;">One of the great values of the Badiouan conception of &#8220;being and event&#8221; is that it illustrates the presence and liveness of history. An Event does not present itself once and for all time but possesses a potential to be reactivated nonlinearly or even nominated retroactively by the shifting grounds of our life-in-common; so the Thirty Years&#8217; War was not known as such in 1618, while the Christo-European &#8220;Crusades&#8221; were largely unknown to the medieval&#42; Islamic world, which had primarily considered these attacks to be territorial skirmishes until their encounter with European historical accounts in the 20th century revealed the religious and ideological framework of these battles, informing, among other things, the rise of Salafiyya. This allows us to refine an old saying: that the internecine war for the future is fought not only on and over the stream of the past, but more precisely the disjointedness and discontinuity of Events.</p>
+
+        <p style="font-size:16px;line-height:1.85;margin-bottom:24px;color:#d8d4cc;font-weight:300;">In many respects, Badiou&#8217;s philosophy of event corresponds to the notorious Freudian concept of death drive, a force in life that opposes, disrupts, and disorganizes life without, for all that, being the same as death. Just as the Event is not the termination of history but the pivot on which the various histories endlessly turn, so too does death drive designate not suicidality but the axis on which human life lives. The Lacanian philosopher Alenka Zupancic has aptly summarized the logic of the death drive by saying &#8220;I do not smoke cigarettes because I want to die, but because smoking cigarettes makes me feel alive.&#8221; The feeling of liveness is alloyed to desire and to the risk of its extinguishment. At the limit: in death. Deprived of this risk, life fatigues itself into mechanical or machinic reproduction.</p>
+
+        <p style="font-size:16px;line-height:1.85;margin-bottom:28px;color:#d8d4cc;font-weight:300;">Because the desire for risk is both incalculable and ineliminable, the human animal is uniquely ungovernable in advance of the event of her being. And because the riskiness of desire derives from the disjointedness of life and psychical history, the human animal is what Freud called a &#8220;prosthetic god&#8221;:</p>
+
+        <!-- Block quote -->
+        <blockquote style="border-left:2px solid #333;padding:20px 28px;margin:0 0 28px;background:#0d0d0d;">
+          <p style="font-size:15px;line-height:1.85;color:#aaa;font-style:italic;font-weight:300;">Man has, as it were, become a kind of prosthetic God. When he puts on all his auxiliary organs he is truly magnificent; but those organs have not grown on to him and they still give him much trouble at times.</p>
+          <cite style="display:block;margin-top:12px;font-family:'IBM Plex Mono',monospace;font-size:10px;color:#555;font-style:normal;letter-spacing:0.06em;">— Sigmund Freud, <em>Civilization and Its Discontents</em></cite>
+        </blockquote>
+
+        <p style="font-size:16px;line-height:1.85;margin-bottom:24px;color:#d8d4cc;font-weight:300;">The technical prostheses with which the human deifies herself are not external to her being, without yet becoming her being — in Lacanian terms: technology is <em>extimate</em>, an intimacy extrinsic to the self, an uncanny outside in which we discover something of the inside.</p>
+
+        <p style="font-size:16px;line-height:1.85;color:#d8d4cc;font-weight:300;">If Heidegger&#8217;s Question Concerning Technology takes flight from his Aristotelian wager that &#8220;the essence of a thing is considered to be what a thing is,&#8221; the psychoanalytic approach to technology adopts a stridently anti-Aristotelian framework, insisting on the untying of essence and being. The proper question concerning technology is neither how it conceals nor reveals so-called real life, but rather what kind of creatures we are — or, if you like, what human nature is — such that we endlessly develop these tele-technologies of propinquity across various distances, fashion prostheses of touch and talk.</p>
+
+        <div style="margin-top:40px;padding-top:24px;border-top:1px solid #1a1a1a;">
+          <p style="font-family:'IBM Plex Mono',monospace;font-size:10px;color:#444;letter-spacing:0.06em;">&#42; The use of &#8220;medieval&#8221; here designates the historical period in European periodization, not a universal developmental stage.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <!-- ── Footer ── -->
   <footer class="footer">
     <div class="footer-inner">
@@ -464,6 +543,7 @@
         <ul class="footer-links">
           <li><a href="#about">About</a></li>
           <li><a href="#scope">Scope</a></li>
+          <li><a href="#statement">Editor&#8217;s Statement</a></li>
           <li><a href="#submissions">Register interest</a></li>
           <li><a href="https://academy.netadao.org">Neta DAO Academy ↗</a></li>
           <li><a href="https://netadao.org">Neta DAO ↗</a></li>
