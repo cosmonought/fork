@@ -3,12 +3,13 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Fork — The Journal of Interchain Theory and Politics</title>
-  <meta name="description" content="Fork is a forthcoming open-access journal of Interchain theory and politics, published by Neta DAO Academy." />
+  <title>Submit — Fork: The Journal of Interchain Theory and Politics</title>
+  <meta name="description" content="Call for Papers and submission guidelines for Fork: The Journal of Interchain Theory and Politics, Vol. 1." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;700;900&family=IBM+Plex+Mono:wght@400;500&family=Barlow:wght@300;400&display=swap" rel="stylesheet" />
   <style>
+  
     :root {
       --ink:   #050505;
       --paper: #f0ede6;
@@ -274,6 +275,8 @@
       .scope-item:last-child { border-bottom: none; }
       .nav-right a:not(:last-child) { display: none; }
     }
+  
+  .active-nav { color: var(--paper) !important; }
   </style>
 </head>
 <body>
@@ -282,143 +285,104 @@
     <a href="https://netadao.org" class="nav-home">← Neta DAO</a>
     <span class="nav-title" style="font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:20px;text-transform:uppercase;display:flex;align-items:center;padding:0 24px;"><span class="grad-text">Fork</span></span>
     <div class="nav-right">
-      <a href="/" id="nav-home">About</a>
-      <a href="/scope.html" id="nav-scope">Scope</a>
-      <a href="/statement.html" id="nav-statement">Statement</a>
-      <a href="/submit.html" id="nav-submit">Submit</a>
+      <a href="/">About</a>
+      <a href="/statement.html">Statement</a>
+      <a href="/submit.html" class="active-nav">Submit</a>
       <a href="https://academy.netadao.org">Academy ↗</a>
     </div>
   </nav>
 
-  <!-- ── Cover ── -->
-  <div class="cover">
-    <div class="cover-main">
-      <div class="cover-title-panel">
-        <p class="fork-label">Journal of Interchain Theory and Politics</p>
-        <svg viewBox="0 0 480 200" width="480" height="200" xmlns="http://www.w3.org/2000/svg" style="max-width:100%;display:block;">
-          <defs>
-            <clipPath id="top-half"><polygon points="0,0 480,0 480,85 0,115"/></clipPath>
-            <clipPath id="bot-half"><polygon points="12,120 492,90 492,220 12,220"/></clipPath>
-            <linearGradient id="gap-grad" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#C9338A"/><stop offset="100%" stop-color="#5B8EF0"/></linearGradient>
-          </defs>
-          <polygon points="0,113 480,83 480,92 0,122" fill="url(#gap-grad)" opacity="0.9"/>
-          <text clip-path="url(#top-half)" x="0" y="168" font-family="'Barlow Condensed',sans-serif" font-weight="900" font-size="168" fill="#f0ede6" letter-spacing="-4">FORK</text>
-          <text clip-path="url(#bot-half)" x="12" y="178" font-family="'Barlow Condensed',sans-serif" font-weight="900" font-size="168" fill="#f0ede6" letter-spacing="-4">FORK</text>
-        </svg>
-        <p class="fork-subtitle">The Journal of<br>Interchain Theory<br>and Politics</p>
+  <!-- ── Page header ── -->
+  <div style="margin-top:52px;border-bottom:var(--rule);">
+    <div style="display:grid;grid-template-columns:1fr 1fr;border-top:var(--rule);">
+      <div style="padding:56px 64px;border-right:var(--rule);">
+        <p style="font-family:'IBM Plex Mono',monospace;font-size:10px;color:var(--dim);letter-spacing:0.12em;text-transform:uppercase;margin-bottom:16px;">Fork · Vol. 1 · Inaugural Issue</p>
+        <h1 style="font-family:'Barlow Condensed',sans-serif;font-size:clamp(36px,5vw,64px);font-weight:900;text-transform:uppercase;line-height:0.92;margin-bottom:16px;">Call for<br>Papers</h1>
+        <h2 style="font-family:'Barlow Condensed',sans-serif;font-size:clamp(16px,2vw,22px);font-weight:400;text-transform:uppercase;letter-spacing:0.04em;color:var(--dim);line-height:1.3;max-width:480px;">The Event of Web3 and the Question Concerning Technology</h2>
       </div>
-      <div class="cover-info-panel">
-        <div class="cover-meta">
-          Publisher <span>Neta DAO Academy</span><br>
-          Frequency <span>Ongoing — Open Access</span><br>
-          Format <span>Digital, Peer-Reviewed</span><br>
-          Status <span style="color:var(--pink);">Forthcoming</span>
-        </div>
-        <p class="cover-statement">
-          Fork publishes theoretical and critical work on the politics of decentralized systems — governance, sovereignty, finance, and the philosophical questions raised by the Interchain. We take blockchain seriously as a site of political and intellectual contestation, not merely technical innovation.
-        </p>
-        <div class="cover-cta">
-          <a href="/submit.html" class="btn btn-primary">Submit / CFP</a>
-          <a href="#about" class="btn btn-outline">About</a>
-          <a href="/statement.html" class="btn btn-outline">Editor's Statement</a>
+      <div style="padding:56px 64px;display:flex;flex-direction:column;justify-content:center;">
+        <div style="display:flex;flex-direction:column;gap:0;">
+          <div style="border-top:1px solid #1a1a1a;padding:16px 0;">
+            <p style="font-family:'IBM Plex Mono',monospace;font-size:10px;color:var(--dim);letter-spacing:0.08em;text-transform:uppercase;margin-bottom:6px;">Submission deadline</p>
+            <p style="font-family:'IBM Plex Mono',monospace;font-size:14px;color:var(--paper);">15 January 2027</p>
+          </div>
+          <div style="border-top:1px solid #1a1a1a;padding:16px 0;">
+            <p style="font-family:'IBM Plex Mono',monospace;font-size:10px;color:var(--dim);letter-spacing:0.08em;text-transform:uppercase;margin-bottom:6px;">Word count</p>
+            <p style="font-family:'IBM Plex Mono',monospace;font-size:14px;color:var(--paper);">500 – 15,000 words</p>
+          </div>
+          <div style="border-top:1px solid #1a1a1a;padding:16px 0;">
+            <p style="font-family:'IBM Plex Mono',monospace;font-size:10px;color:var(--dim);letter-spacing:0.08em;text-transform:uppercase;margin-bottom:6px;">Artwork deadline</p>
+            <p style="font-family:'IBM Plex Mono',monospace;font-size:14px;color:var(--paper);">15 January 2027 · Color and B&W</p>
+          </div>
+          <div style="border-top:1px solid #1a1a1a;padding:16px 0;">
+            <p style="font-family:'IBM Plex Mono',monospace;font-size:10px;color:var(--dim);letter-spacing:0.08em;text-transform:uppercase;margin-bottom:6px;">Contact</p>
+            <p style="font-family:'IBM Plex Mono',monospace;font-size:13px;color:var(--paper);">journal@netadao.zone</p>
+          </div>
         </div>
       </div>
     </div>
-    <div class="cover-strip">
-      <span class="cover-strip-label">fork.netadao.org · Published by Neta DAO Academy · <a href="https://netadao.org" style="color:var(--dim);">netadao.org</a></span>
-      <span class="cover-strip-status">Vol. 1 — Forthcoming</span>
-    </div>
   </div>
 
-  <!-- ── About ── -->
-  <div class="section reveal" id="about">
-    <div class="section-inner">
-      <p class="section-label">About</p>
-    </div>
-    <div class="manifesto-grid">
-      <div class="manifesto-panel">
-        <span class="manifesto-num">01</span>
-        <h2 class="manifesto-heading">The name</h2>
-        <p class="manifesto-body">A fork is the moment when a shared history diverges and two possible futures emerge. In blockchain, it is how communities decide what they value and who they are. We take this to be a description not only of on-chain governance, but of the political moment in which we find ourselves.</p>
-      </div>
-      <div class="manifesto-panel">
-        <span class="manifesto-num">02</span>
-        <h2 class="manifesto-heading">The argument</h2>
-        <p class="manifesto-body">Public blockchains are political institutions, not merely technical ones. They encode rules, distribute power, produce subjects, and make claims about justice. A journal that takes this seriously must bring the full weight of critical theory, political philosophy, and social science to bear on them.</p>
-      </div>
-      <div class="manifesto-panel">
-        <span class="manifesto-num">03</span>
-        <h2 class="manifesto-heading">The method</h2>
-        <p class="manifesto-body">Fork is interdisciplinary without being undisciplined. We publish rigorous work — theoretical, empirical, historical — that engages the Interchain on its own terms while refusing to treat its technical categories as given. Political economy, psychoanalysis, legal theory, philosophy of technology: all are welcome here.</p>
-      </div>
-      <div class="manifesto-panel">
-        <span class="manifesto-num">04</span>
-        <h2 class="manifesto-heading">The institution</h2>
-        <p class="manifesto-body">Fork is published by Neta DAO Academy, an educational subDAO of Neta DAO — a nonprofit public institution serving the Cosmos/Interchain. The journal is open access, community-governed, and committed to the principle that intellectual life is a public good. No paywalls. No fees to publish.</p>
-      </div>
-    </div>
-  </div>
-
-  <!-- ── Scope ── -->
-  <div class="section reveal" id="scope">
-    <div class="section-inner">
-      <p class="section-label">Scope</p>
-      <h2 style="font-family:var(--font-display);font-size:clamp(32px,4vw,56px);font-weight:900;text-transform:uppercase;line-height:0.95;max-width:700px;">We publish work on the politics, theory, and philosophy of the Interchain.</h2>
-    </div>
-    <div class="scope-grid">
-      <div class="scope-item"><h4>Governance</h4><p>On-chain and off-chain governance mechanisms, DAO constitutions, voting systems, token-weighted democracy, and the political theory of decentralized decision-making.</p></div>
-      <div class="scope-item"><h4>Political Economy</h4><p>Cryptocurrency and monetary theory, tokenomics, DeFi, financialization, surplus value in blockchain systems, and the political economy of the Cosmos ecosystem.</p></div>
-      <div class="scope-item"><h4>Philosophy</h4><p>Post-structuralist, psychoanalytic, and critical theory approaches to Web3. Philosophy of technology, sovereignty, constituent power, and the ontology of decentralization.</p></div>
-      <div class="scope-item"><h4>Law and Rights</h4><p>Crypto regulation, securities law, smart contract theory, digital sovereignty, and the juridical status of DAOs and blockchain-native organizations.</p></div>
-    </div>
-  </div>
-
-  <!-- ── Editorial principles ── -->
+  <!-- ── CFP Text ── -->
   <div class="section reveal">
     <div style="display:grid;grid-template-columns:1fr 1fr;border-top:var(--rule);">
       <div style="padding:56px 64px;border-right:var(--rule);">
-        <p class="section-label">Editorial principles</p>
-        <h2 style="font-family:var(--font-display);font-size:40px;font-weight:900;text-transform:uppercase;line-height:1;margin-bottom:24px;">Open.<br>Rigorous.<br>Public.</h2>
-        <p style="font-size:14px;color:var(--dim);line-height:1.75;font-weight:300;">Fork is committed to open access — every article is freely available, forever. We charge no article processing fees. Peer review is double-blind. Editorial decisions are made independently of Neta DAO governance.</p>
+        <p class="section-label">The Question</p>
+        <p style="font-size:16px;line-height:1.85;color:#d8d4cc;font-weight:300;margin-bottom:24px;">Where did blockchain technology come from, and where is it going? Does its promise lead to utopia or apocalypse? By addressing these questions, we seek not only to pose the question &#8220;what is blockchain,&#8221; but what is human being — or, if you like, human nature — such that it develops these technologies of distance and propinquity, these prostheses of talk and touch?</p>
+        <p style="font-size:16px;line-height:1.85;color:#d8d4cc;font-weight:300;margin-bottom:24px;">For the inaugural issue of Fork, we are therefore seeking contributions that address the histories, pre-histories, and futures of Web3, as well as of the intellectual trends and concepts that have informed its development.</p>
+        <p style="font-size:16px;line-height:1.85;color:#d8d4cc;font-weight:300;">We also strongly invite contributions from Web3 developers willing to share their personal journeys or visions from within particular ecosystems, artists willing to share their creative responses or interventions in the field, and all other sorts and sundries: from memoir to manifesto, from whitepaper to speculation, from PFPs to institutional critique.</p>
       </div>
       <div style="padding:56px 64px;">
-        <div style="border-top:1px solid #1a1a1a;padding:20px 0;">
-          <p style="font-family:var(--font-mono);font-size:10px;color:var(--dim);letter-spacing:0.08em;text-transform:uppercase;margin-bottom:8px;">Article types</p>
-          <p style="font-size:14px;color:var(--paper);line-height:1.8;">Research articles (500–15,000 words)<br>Review essays · Interventions and responses<br>Translations with critical introductions<br>Creative and artistic submissions<br>Memoir · Manifesto · Whitepaper · Speculation</p>
+        <p class="section-label">Disciplinary scope</p>
+        <p style="font-size:15px;line-height:1.85;color:#d8d4cc;font-weight:300;margin-bottom:24px;">Contributors inclined to scholarship may situate blockchain vis-à-vis information and communication technologies, cryptography, economics, political science, computer science, science fiction, philosophy, theology, psychoanalysis, critical legal theory, new media, art history, and more.</p>
+        <p style="font-size:15px;line-height:1.85;color:#d8d4cc;font-weight:300;margin-bottom:32px;">Contributors are invited to contact the editor at any time prior to the deadline to pitch a proposal, though this is not necessary.</p>
+        <div style="border:1px solid #1a1a1a;padding:20px 24px;background:#0d0d0d;">
+          <p style="font-family:'IBM Plex Mono',monospace;font-size:10px;color:var(--dim);letter-spacing:0.08em;text-transform:uppercase;margin-bottom:10px;">To submit or pitch</p>
+          <p style="font-family:'IBM Plex Mono',monospace;font-size:13px;color:var(--paper);margin-bottom:6px;">journal@netadao.zone</p>
+          <p style="font-size:12px;color:var(--dim);line-height:1.6;">Written submissions due 15 January 2027.<br>Artwork (color and B&W) due 15 January 2027.</p>
         </div>
-        <div style="border-top:1px solid #1a1a1a;padding:20px 0;">
-          <p style="font-family:var(--font-mono);font-size:10px;color:var(--dim);letter-spacing:0.08em;text-transform:uppercase;margin-bottom:8px;">Contact</p>
-          <p style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--paper);">journal@netadao.zone</p>
-        </div>
-        <div style="border-top:1px solid #1a1a1a;padding:20px 0 0;">
-          <a href="/submit.html" class="btn btn-primary" style="font-size:10px;padding:12px 20px;">Submit or register interest →</a>
-        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── Register interest form ── -->
+  <div class="section reveal" id="register">
+    <div class="submissions-grid">
+      <div class="submissions-info">
+        <p class="section-label">Register Interest</p>
+        <h2 style="font-family:'Barlow Condensed',sans-serif;font-size:48px;font-weight:900;text-transform:uppercase;line-height:1;margin-bottom:24px;">Stay<br>informed.</h2>
+        <p style="font-size:15px;color:var(--dim);line-height:1.75;font-weight:300;margin-bottom:24px;">Register below to receive the call for papers when we formally open submissions, or to be considered for the editorial board or peer reviewer pool.</p>
+        <p style="font-size:15px;color:var(--dim);line-height:1.75;font-weight:300;margin-bottom:24px;">In the meantime, engage with <a href="https://academy.netadao.org" style="color:#5B8EF0;">Neta DAO Academy ↗</a> and the Coining Reason seminar series, which provides the intellectual context for the journal's direction.</p>
+        <p style="font-family:'IBM Plex Mono',monospace;font-size:10px;color:#444;line-height:1.8;">Questions: <a href="https://discord.com/invite/gvjC86WXC2" target="_blank" rel="noopener" style="color:#5B8EF0;">Neta DAO Discord ↗</a></p>
+      </div>
+      <div class="submissions-form-panel">
+        <form id="interest-form" onsubmit="handleSubmit(event)">
+          <div class="form-group"><label class="form-label" for="name">Name</label><input class="form-input" type="text" id="name" name="name" placeholder="Your name" required /></div>
+          <div class="form-group"><label class="form-label" for="email">Email</label><input class="form-input" type="email" id="email" name="email" placeholder="your@email.com" required /></div>
+          <div class="form-group">
+            <label class="form-label" for="interest">Interest</label>
+            <select class="form-select" id="interest" name="interest">
+              <option value="submissions">Submitting work</option>
+              <option value="editorial">Editorial board</option>
+              <option value="review">Peer reviewing</option>
+              <option value="updates">General updates only</option>
+            </select>
+          </div>
+          <div class="form-group"><label class="form-label" for="research">Research area (optional)</label><textarea class="form-textarea" id="research" name="research" placeholder="Brief description of your work or research area…" style="min-height:90px;"></textarea></div>
+          <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center;">Register interest →</button>
+          <p class="form-note">Your information will only be used to contact you about Fork. This form opens a mailto link — no server required.</p>
+        </form>
+        <div id="form-success" style="display:none;padding:32px;border:1px solid #5bf08c;margin-top:0;"><p style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#5bf08c;letter-spacing:0.06em;text-transform:uppercase;margin-bottom:12px;">Registered</p><p style="font-size:14px;color:var(--dim);line-height:1.7;">Thank you. We'll be in touch when Fork opens submissions. In the meantime, join the community at the <a href="https://discord.com/invite/gvjC86WXC2" target="_blank" rel="noopener" style="color:#5B8EF0;">Neta DAO Discord</a>.</p></div>
       </div>
     </div>
   </div>
 
   <footer class="footer">
     <div class="footer-inner">
-      <div class="footer-left">
-        <p class="footer-name"><span class="grad-text">Fork</span></p>
-        <p class="footer-tagline">The Journal of Interchain Theory and Politics</p>
-        <p style="font-family:'IBM Plex Mono',monospace;font-size:10px;color:#333;margin-top:8px;">Published by Neta DAO Academy · <a href="https://netadao.org" style="color:#444;">netadao.org</a></p>
-      </div>
-      <div class="footer-right">
-        <ul class="footer-links">
-          <li><a href="/">About</a></li>
-          <li><a href="/statement.html">Editor's Statement</a></li>
-          <li><a href="/submit.html">Submit / CFP</a></li>
-          <li><a href="https://academy.netadao.org">Neta DAO Academy ↗</a></li>
-          <li><a href="https://netadao.org">Neta DAO ↗</a></li>
-          <li><a href="https://github.com/NetaDAOAcademy" target="_blank" rel="noopener">GitHub ↗</a></li>
-        </ul>
-      </div>
+      <div class="footer-left"><p class="footer-name"><span class="grad-text">Fork</span></p><p class="footer-tagline">The Journal of Interchain Theory and Politics</p><p style="font-family:'IBM Plex Mono',monospace;font-size:10px;color:#333;margin-top:8px;">Published by Neta DAO Academy · <a href="https://netadao.org" style="color:#444;">netadao.org</a></p></div>
+      <div class="footer-right"><ul class="footer-links"><li><a href="/">About</a></li><li><a href="/statement.html">Editor's Statement</a></li><li><a href="/submit.html">Submit / CFP</a></li><li><a href="https://academy.netadao.org">Neta DAO Academy ↗</a></li><li><a href="https://netadao.org">Neta DAO ↗</a></li><li><a href="https://github.com/NetaDAOAcademy" target="_blank" rel="noopener">GitHub ↗</a></li></ul></div>
     </div>
-    <div class="footer-bottom">
-      <p class="footer-copy">© Neta DAO Academy. Open access. No rights reserved.</p>
-      <p class="footer-copy">fork.netadao.org</p>
-    </div>
+    <div class="footer-bottom"><p class="footer-copy">© Neta DAO Academy. Open access. No rights reserved.</p><p class="footer-copy">fork.netadao.org</p></div>
   </footer>
   <script>
     const revealEls = document.querySelectorAll('.reveal');
@@ -428,7 +392,17 @@
       }, { threshold: 0.08 });
       revealEls.forEach(el => obs.observe(el));
     }
-    document.getElementById('nav-home')?.classList.add('active-nav');
+    function handleSubmit(e) {
+      e.preventDefault();
+      const name     = document.getElementById('name').value;
+      const email    = document.getElementById('email').value;
+      const interest = document.getElementById('interest').value;
+      const research = document.getElementById('research').value;
+      const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\nInterest: ${interest}\nResearch area: ${research || 'Not provided'}`);
+      window.location.href = `mailto:journal@netadao.zone?subject=Fork Journal — Interest Registration&body=${body}`;
+      document.getElementById('interest-form').style.display = 'none';
+      document.getElementById('form-success').style.display = 'block';
+    }
   </script>
 </body>
 </html>

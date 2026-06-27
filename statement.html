@@ -3,12 +3,13 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Fork — The Journal of Interchain Theory and Politics</title>
-  <meta name="description" content="Fork is a forthcoming open-access journal of Interchain theory and politics, published by Neta DAO Academy." />
+  <title>Editor's Statement — Fork</title>
+  <meta name="description" content="Editor's statement for the inaugural issue of Fork: The Journal of Interchain Theory and Politics." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;700;900&family=IBM+Plex+Mono:wght@400;500&family=Barlow:wght@300;400&display=swap" rel="stylesheet" />
   <style>
+  
     :root {
       --ink:   #050505;
       --paper: #f0ede6;
@@ -274,6 +275,29 @@
       .scope-item:last-child { border-bottom: none; }
       .nav-right a:not(:last-child) { display: none; }
     }
+  
+  .essay-wrap {
+    max-width: 680px;
+    margin: 0 auto;
+    padding: 0 64px;
+  }
+  .essay-p {
+    font-size: 17px;
+    line-height: 1.9;
+    margin-bottom: 28px;
+    color: #d8d4cc;
+    font-weight: 300;
+  }
+  .essay-bq {
+    border-left: 2px solid #333;
+    padding: 20px 28px;
+    margin: 0 0 28px;
+    background: #0d0d0d;
+  }
+  .essay-bq p { font-size: 15px; line-height: 1.85; color: #aaa; font-style: italic; font-weight: 300; margin: 0; }
+  .essay-bq cite { display:block; margin-top:12px; font-family:'IBM Plex Mono',monospace; font-size:10px; color:#555; font-style:normal; letter-spacing:0.06em; }
+  @media (max-width: 900px) { .essay-wrap { padding: 0 36px; } }
+  @media (max-width: 640px) { .essay-wrap { padding: 0 24px; } .essay-p { font-size: 15px; } }
   </style>
 </head>
 <body>
@@ -282,143 +306,60 @@
     <a href="https://netadao.org" class="nav-home">← Neta DAO</a>
     <span class="nav-title" style="font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:20px;text-transform:uppercase;display:flex;align-items:center;padding:0 24px;"><span class="grad-text">Fork</span></span>
     <div class="nav-right">
-      <a href="/" id="nav-home">About</a>
-      <a href="/scope.html" id="nav-scope">Scope</a>
-      <a href="/statement.html" id="nav-statement">Statement</a>
-      <a href="/submit.html" id="nav-submit">Submit</a>
+      <a href="/">About</a>
+      <a href="/statement.html" class="active-nav">Statement</a>
+      <a href="/submit.html">Submit</a>
       <a href="https://academy.netadao.org">Academy ↗</a>
     </div>
   </nav>
 
-  <!-- ── Cover ── -->
-  <div class="cover">
-    <div class="cover-main">
-      <div class="cover-title-panel">
-        <p class="fork-label">Journal of Interchain Theory and Politics</p>
-        <svg viewBox="0 0 480 200" width="480" height="200" xmlns="http://www.w3.org/2000/svg" style="max-width:100%;display:block;">
-          <defs>
-            <clipPath id="top-half"><polygon points="0,0 480,0 480,85 0,115"/></clipPath>
-            <clipPath id="bot-half"><polygon points="12,120 492,90 492,220 12,220"/></clipPath>
-            <linearGradient id="gap-grad" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#C9338A"/><stop offset="100%" stop-color="#5B8EF0"/></linearGradient>
-          </defs>
-          <polygon points="0,113 480,83 480,92 0,122" fill="url(#gap-grad)" opacity="0.9"/>
-          <text clip-path="url(#top-half)" x="0" y="168" font-family="'Barlow Condensed',sans-serif" font-weight="900" font-size="168" fill="#f0ede6" letter-spacing="-4">FORK</text>
-          <text clip-path="url(#bot-half)" x="12" y="178" font-family="'Barlow Condensed',sans-serif" font-weight="900" font-size="168" fill="#f0ede6" letter-spacing="-4">FORK</text>
-        </svg>
-        <p class="fork-subtitle">The Journal of<br>Interchain Theory<br>and Politics</p>
-      </div>
-      <div class="cover-info-panel">
-        <div class="cover-meta">
-          Publisher <span>Neta DAO Academy</span><br>
-          Frequency <span>Ongoing — Open Access</span><br>
-          Format <span>Digital, Peer-Reviewed</span><br>
-          Status <span style="color:var(--pink);">Forthcoming</span>
-        </div>
-        <p class="cover-statement">
-          Fork publishes theoretical and critical work on the politics of decentralized systems — governance, sovereignty, finance, and the philosophical questions raised by the Interchain. We take blockchain seriously as a site of political and intellectual contestation, not merely technical innovation.
-        </p>
-        <div class="cover-cta">
-          <a href="/submit.html" class="btn btn-primary">Submit / CFP</a>
-          <a href="#about" class="btn btn-outline">About</a>
-          <a href="/statement.html" class="btn btn-outline">Editor's Statement</a>
-        </div>
-      </div>
-    </div>
-    <div class="cover-strip">
-      <span class="cover-strip-label">fork.netadao.org · Published by Neta DAO Academy · <a href="https://netadao.org" style="color:var(--dim);">netadao.org</a></span>
-      <span class="cover-strip-status">Vol. 1 — Forthcoming</span>
+  <!-- ── Header ── -->
+  <div style="margin-top:52px;border-bottom:var(--rule);">
+    <div style="padding:64px 64px 48px;">
+      <p style="font-family:'IBM Plex Mono',monospace;font-size:10px;color:var(--dim);letter-spacing:0.12em;text-transform:uppercase;margin-bottom:20px;">Fork · Vol. 1 · Inaugural Issue</p>
+      <h1 style="font-family:'Barlow Condensed',sans-serif;font-size:clamp(32px,5vw,64px);font-weight:900;text-transform:uppercase;line-height:0.95;margin-bottom:20px;">Editor's Statement</h1>
+      <h2 style="font-family:'Barlow Condensed',sans-serif;font-size:clamp(18px,2.5vw,28px);font-weight:400;text-transform:uppercase;letter-spacing:0.04em;color:var(--dim);line-height:1.3;max-width:600px;">The Event of Web3 and the Question Concerning Technology</h2>
     </div>
   </div>
 
-  <!-- ── About ── -->
-  <div class="section reveal" id="about">
-    <div class="section-inner">
-      <p class="section-label">About</p>
-    </div>
-    <div class="manifesto-grid">
-      <div class="manifesto-panel">
-        <span class="manifesto-num">01</span>
-        <h2 class="manifesto-heading">The name</h2>
-        <p class="manifesto-body">A fork is the moment when a shared history diverges and two possible futures emerge. In blockchain, it is how communities decide what they value and who they are. We take this to be a description not only of on-chain governance, but of the political moment in which we find ourselves.</p>
-      </div>
-      <div class="manifesto-panel">
-        <span class="manifesto-num">02</span>
-        <h2 class="manifesto-heading">The argument</h2>
-        <p class="manifesto-body">Public blockchains are political institutions, not merely technical ones. They encode rules, distribute power, produce subjects, and make claims about justice. A journal that takes this seriously must bring the full weight of critical theory, political philosophy, and social science to bear on them.</p>
-      </div>
-      <div class="manifesto-panel">
-        <span class="manifesto-num">03</span>
-        <h2 class="manifesto-heading">The method</h2>
-        <p class="manifesto-body">Fork is interdisciplinary without being undisciplined. We publish rigorous work — theoretical, empirical, historical — that engages the Interchain on its own terms while refusing to treat its technical categories as given. Political economy, psychoanalysis, legal theory, philosophy of technology: all are welcome here.</p>
-      </div>
-      <div class="manifesto-panel">
-        <span class="manifesto-num">04</span>
-        <h2 class="manifesto-heading">The institution</h2>
-        <p class="manifesto-body">Fork is published by Neta DAO Academy, an educational subDAO of Neta DAO — a nonprofit public institution serving the Cosmos/Interchain. The journal is open access, community-governed, and committed to the principle that intellectual life is a public good. No paywalls. No fees to publish.</p>
-      </div>
-    </div>
-  </div>
+  <!-- ── Essay ── -->
+  <div style="padding:64px 0 80px;">
+    <div class="essay-wrap">
 
-  <!-- ── Scope ── -->
-  <div class="section reveal" id="scope">
-    <div class="section-inner">
-      <p class="section-label">Scope</p>
-      <h2 style="font-family:var(--font-display);font-size:clamp(32px,4vw,56px);font-weight:900;text-transform:uppercase;line-height:0.95;max-width:700px;">We publish work on the politics, theory, and philosophy of the Interchain.</h2>
-    </div>
-    <div class="scope-grid">
-      <div class="scope-item"><h4>Governance</h4><p>On-chain and off-chain governance mechanisms, DAO constitutions, voting systems, token-weighted democracy, and the political theory of decentralized decision-making.</p></div>
-      <div class="scope-item"><h4>Political Economy</h4><p>Cryptocurrency and monetary theory, tokenomics, DeFi, financialization, surplus value in blockchain systems, and the political economy of the Cosmos ecosystem.</p></div>
-      <div class="scope-item"><h4>Philosophy</h4><p>Post-structuralist, psychoanalytic, and critical theory approaches to Web3. Philosophy of technology, sovereignty, constituent power, and the ontology of decentralization.</p></div>
-      <div class="scope-item"><h4>Law and Rights</h4><p>Crypto regulation, securities law, smart contract theory, digital sovereignty, and the juridical status of DAOs and blockchain-native organizations.</p></div>
-    </div>
-  </div>
+      <p class="essay-p">In the philosophical terminology of Alain Badiou, an event is not simply whatever happens to happen in the course of time, but a cleft, disunion, or inconsistency of time with itself — moments when, as Hamlet put it, &#8220;the time is out-of-joint&#8221; — when the membrane between the world in which we live and an alternative life-world (or worlds) thin to the point of suppurating disorienting excesses, gaps, and remainders. Amidst this inter(in)animation of worlds, a decision must be rendered: an Event demands fidelity to Truth, that is, to the subjective construction of Truth, and to the truth of the subject&#8217;s constructability.</p>
 
-  <!-- ── Editorial principles ── -->
-  <div class="section reveal">
-    <div style="display:grid;grid-template-columns:1fr 1fr;border-top:var(--rule);">
-      <div style="padding:56px 64px;border-right:var(--rule);">
-        <p class="section-label">Editorial principles</p>
-        <h2 style="font-family:var(--font-display);font-size:40px;font-weight:900;text-transform:uppercase;line-height:1;margin-bottom:24px;">Open.<br>Rigorous.<br>Public.</h2>
-        <p style="font-size:14px;color:var(--dim);line-height:1.75;font-weight:300;">Fork is committed to open access — every article is freely available, forever. We charge no article processing fees. Peer review is double-blind. Editorial decisions are made independently of Neta DAO governance.</p>
+      <p class="essay-p">One of the great values of the Badiouan conception of &#8220;being and event&#8221; is that it illustrates the presence and liveness of history. An Event does not present itself once and for all time but possesses a potential to be reactivated nonlinearly or even nominated retroactively by the shifting grounds of our life-in-common; so the Thirty Years&#8217; War was not known as such in 1618, while the Christo-European &#8220;Crusades&#8221; were largely unknown to the medieval&#42; Islamic world, which had primarily considered these attacks to be territorial skirmishes until their encounter with European historical accounts in the 20th century revealed the religious and ideological framework of these battles, informing, among other things, the rise of Salafiyya. This allows us to refine an old saying: that the internecine war for the future is fought not only on and over the stream of the past, but more precisely the disjointedness and discontinuity of Events.</p>
+
+      <p class="essay-p">In many respects, Badiou&#8217;s philosophy of event corresponds to the notorious Freudian concept of death drive, a force in life that opposes, disrupts, and disorganizes life without, for all that, being the same as death. Just as the Event is not the termination of history but the pivot on which the various histories endlessly turn, so too does death drive designate not suicidality but the axis on which human life lives. The Lacanian philosopher Alenka Zupancic has aptly summarized the logic of the death drive by saying &#8220;I do not smoke cigarettes because I want to die, but because smoking cigarettes makes me feel alive.&#8221; The feeling of liveness is alloyed to desire and to the risk of its extinguishment. At the limit: in death. Deprived of this risk, life fatigues itself into mechanical or machinic reproduction.</p>
+
+      <p class="essay-p">Because the desire for risk is both incalculable and ineliminable, the human animal is uniquely ungovernable in advance of the event of her being. And because the riskiness of desire derives from the disjointedness of life and psychical history, the human animal is what Freud called a &#8220;prosthetic god&#8221;:</p>
+
+      <div class="essay-bq">
+        <p>Man has, as it were, become a kind of prosthetic God. When he puts on all his auxiliary organs he is truly magnificent; but those organs have not grown on to him and they still give him much trouble at times.</p>
+        <cite>— Sigmund Freud, <em>Civilization and Its Discontents</em></cite>
       </div>
-      <div style="padding:56px 64px;">
-        <div style="border-top:1px solid #1a1a1a;padding:20px 0;">
-          <p style="font-family:var(--font-mono);font-size:10px;color:var(--dim);letter-spacing:0.08em;text-transform:uppercase;margin-bottom:8px;">Article types</p>
-          <p style="font-size:14px;color:var(--paper);line-height:1.8;">Research articles (500–15,000 words)<br>Review essays · Interventions and responses<br>Translations with critical introductions<br>Creative and artistic submissions<br>Memoir · Manifesto · Whitepaper · Speculation</p>
-        </div>
-        <div style="border-top:1px solid #1a1a1a;padding:20px 0;">
-          <p style="font-family:var(--font-mono);font-size:10px;color:var(--dim);letter-spacing:0.08em;text-transform:uppercase;margin-bottom:8px;">Contact</p>
-          <p style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--paper);">journal@netadao.zone</p>
-        </div>
-        <div style="border-top:1px solid #1a1a1a;padding:20px 0 0;">
-          <a href="/submit.html" class="btn btn-primary" style="font-size:10px;padding:12px 20px;">Submit or register interest →</a>
-        </div>
+
+      <p class="essay-p">The technical prostheses with which the human deifies herself are not external to her being, without yet becoming her being — in Lacanian terms: technology is <em>extimate</em>, an intimacy extrinsic to the self, an uncanny outside in which we discover something of the inside.</p>
+
+      <p class="essay-p">If Heidegger&#8217;s Question Concerning Technology takes flight from his Aristotelian wager that &#8220;the essence of a thing is considered to be what a thing is,&#8221; the psychoanalytic approach to technology adopts a stridently anti-Aristotelian framework, insisting on the untying of essence and being. The proper question concerning technology is neither how it conceals nor reveals so-called real life, but rather what kind of creatures we are — or, if you like, what human nature is — such that we endlessly develop these tele-technologies of propinquity across various distances, fashion prostheses of touch and talk.</p>
+
+      <div style="margin-top:48px;padding-top:24px;border-top:1px solid #1a1a1a;">
+        <p style="font-family:'IBM Plex Mono',monospace;font-size:10px;color:#444;letter-spacing:0.04em;line-height:1.8;">&#42; The use of &#8220;medieval&#8221; here designates the historical period in European periodization, not a universal developmental stage.</p>
+      </div>
+
+      <div style="margin-top:40px;display:flex;gap:0;">
+        <a href="/submit.html" class="btn btn-primary">Submit to Vol. 1 →</a>
+        <a href="/" class="btn btn-outline">About Fork</a>
       </div>
     </div>
   </div>
 
   <footer class="footer">
     <div class="footer-inner">
-      <div class="footer-left">
-        <p class="footer-name"><span class="grad-text">Fork</span></p>
-        <p class="footer-tagline">The Journal of Interchain Theory and Politics</p>
-        <p style="font-family:'IBM Plex Mono',monospace;font-size:10px;color:#333;margin-top:8px;">Published by Neta DAO Academy · <a href="https://netadao.org" style="color:#444;">netadao.org</a></p>
-      </div>
-      <div class="footer-right">
-        <ul class="footer-links">
-          <li><a href="/">About</a></li>
-          <li><a href="/statement.html">Editor's Statement</a></li>
-          <li><a href="/submit.html">Submit / CFP</a></li>
-          <li><a href="https://academy.netadao.org">Neta DAO Academy ↗</a></li>
-          <li><a href="https://netadao.org">Neta DAO ↗</a></li>
-          <li><a href="https://github.com/NetaDAOAcademy" target="_blank" rel="noopener">GitHub ↗</a></li>
-        </ul>
-      </div>
+      <div class="footer-left"><p class="footer-name"><span class="grad-text">Fork</span></p><p class="footer-tagline">The Journal of Interchain Theory and Politics</p><p style="font-family:'IBM Plex Mono',monospace;font-size:10px;color:#333;margin-top:8px;">Published by Neta DAO Academy · <a href="https://netadao.org" style="color:#444;">netadao.org</a></p></div>
+      <div class="footer-right"><ul class="footer-links"><li><a href="/">About</a></li><li><a href="/statement.html">Editor's Statement</a></li><li><a href="/submit.html">Submit / CFP</a></li><li><a href="https://academy.netadao.org">Neta DAO Academy ↗</a></li><li><a href="https://netadao.org">Neta DAO ↗</a></li><li><a href="https://github.com/NetaDAOAcademy" target="_blank" rel="noopener">GitHub ↗</a></li></ul></div>
     </div>
-    <div class="footer-bottom">
-      <p class="footer-copy">© Neta DAO Academy. Open access. No rights reserved.</p>
-      <p class="footer-copy">fork.netadao.org</p>
-    </div>
+    <div class="footer-bottom"><p class="footer-copy">© Neta DAO Academy. Open access. No rights reserved.</p><p class="footer-copy">fork.netadao.org</p></div>
   </footer>
   <script>
     const revealEls = document.querySelectorAll('.reveal');
@@ -428,7 +369,6 @@
       }, { threshold: 0.08 });
       revealEls.forEach(el => obs.observe(el));
     }
-    document.getElementById('nav-home')?.classList.add('active-nav');
   </script>
 </body>
 </html>
