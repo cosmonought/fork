@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Fork — The Journal of Interchain Theory and Politics</title>
-  <meta name="description" content="Fork is a forthcoming open-access journal of Interchain theory and politics, published by Neta DAO Academy." />
+  <meta name="description" content="Fork is a forthcoming open-access journal of Interchain theory and politics." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;700;900&family=IBM+Plex+Mono:wght@400;500&family=Barlow:wght@300;400&display=swap" rel="stylesheet" />
@@ -274,23 +274,34 @@
       .scope-item:last-child { border-bottom: none; }
       .nav-right a:not(:last-child) { display: none; }
     }
-  </style>
+  
+  .active-nav { color: var(--paper) !important; }
+  .nav-logo-link { text-decoration: none; transition: opacity 0.15s; }
+  .nav-logo-link:hover { opacity: 0.8; }</style>
 </head>
 <body>
 
   <nav class="nav">
     <a href="https://netadao.org" class="nav-home">← Neta DAO</a>
-    <span class="nav-title" style="font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:20px;text-transform:uppercase;display:flex;align-items:center;padding:0 24px;"><span class="grad-text">Fork</span></span>
+    <a href="/" class="nav-logo-link" style="display:flex;align-items:center;padding:0 16px;border-right:var(--rule);border-left:var(--rule);"><svg viewBox="0 0 160 66" width="80" height="33" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <clipPath id="nt"><polygon points="0,0 160,0 160,28 0,38"/></clipPath>
+          <clipPath id="nb"><polygon points="4,40 164,30 164,73 4,73"/></clipPath>
+          <linearGradient id="ng2" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#C9338A"/><stop offset="100%" stop-color="#5B8EF0"/></linearGradient>
+        </defs>
+        <polygon points="0,37 160,27 160,31 0,41" fill="url(#ng2)" opacity="0.95"/>
+        <text clip-path="url(#nt)" x="0" y="56" font-family="'Barlow Condensed',sans-serif" font-weight="900" font-size="56" fill="#f0ede6" letter-spacing="-1">FORK</text>
+        <text clip-path="url(#nb)" x="4" y="59" font-family="'Barlow Condensed',sans-serif" font-weight="900" font-size="56" fill="#f0ede6" letter-spacing="-1">FORK</text>
+      </svg></a>
     <div class="nav-right">
-      <a href="/" id="nav-home">About</a>
-      <a href="/scope.html" id="nav-scope">Scope</a>
-      <a href="/statement.html" id="nav-statement">Statement</a>
-      <a href="/submit.html" id="nav-submit">Submit</a>
+      <a href="/" class="active-nav">About</a>
+      <a href="/scope.html">Scope</a>
+      <a href="/statement.html">Statement</a>
+      <a href="/submit.html">Submit</a>
       <a href="https://academy.netadao.org">Academy ↗</a>
     </div>
   </nav>
 
-  <!-- ── Cover ── -->
   <div class="cover">
     <div class="cover-main">
       <div class="cover-title-panel">
@@ -314,13 +325,11 @@
           Format <span>Digital, Peer-Reviewed</span><br>
           Status <span style="color:var(--pink);">Forthcoming</span>
         </div>
-        <p class="cover-statement">
-          Fork publishes theoretical and critical work on the politics of decentralized systems — governance, sovereignty, finance, and the philosophical questions raised by the Interchain. We take blockchain seriously as a site of political and intellectual contestation, not merely technical innovation.
-        </p>
+        <p class="cover-statement">Fork publishes theoretical and critical work on the politics of decentralized systems — governance, sovereignty, finance, and the philosophical questions raised by the Interchain. We take blockchain seriously as a site of political and intellectual contestation, not merely technical innovation.</p>
         <div class="cover-cta">
-          <a href="/submit.html" class="btn btn-primary">Submit / CFP</a>
-          <a href="#about" class="btn btn-outline">About</a>
+          <a href="/about.html" class="btn btn-primary">About</a>
           <a href="/statement.html" class="btn btn-outline">Editor's Statement</a>
+          <a href="/submit.html" class="btn btn-outline">Submit</a>
         </div>
       </div>
     </div>
@@ -330,69 +339,23 @@
     </div>
   </div>
 
-  <!-- ── About ── -->
-  <div class="section reveal" id="about">
-    <div class="section-inner">
-      <p class="section-label">About</p>
-    </div>
-    <div class="manifesto-grid">
-      <div class="manifesto-panel">
-        <span class="manifesto-num">01</span>
-        <h2 class="manifesto-heading">The name</h2>
-        <p class="manifesto-body">A fork is the moment when a shared history diverges and two possible futures emerge. In blockchain, it is how communities decide what they value and who they are. We take this to be a description not only of on-chain governance, but of the political moment in which we find ourselves.</p>
-      </div>
-      <div class="manifesto-panel">
-        <span class="manifesto-num">02</span>
-        <h2 class="manifesto-heading">The argument</h2>
-        <p class="manifesto-body">Public blockchains are political institutions, not merely technical ones. They encode rules, distribute power, produce subjects, and make claims about justice. A journal that takes this seriously must bring the full weight of critical theory, political philosophy, and social science to bear on them.</p>
-      </div>
-      <div class="manifesto-panel">
-        <span class="manifesto-num">03</span>
-        <h2 class="manifesto-heading">The method</h2>
-        <p class="manifesto-body">Fork is interdisciplinary without being undisciplined. We publish rigorous work — theoretical, empirical, historical — that engages the Interchain on its own terms while refusing to treat its technical categories as given. Political economy, psychoanalysis, legal theory, philosophy of technology: all are welcome here.</p>
-      </div>
-      <div class="manifesto-panel">
-        <span class="manifesto-num">04</span>
-        <h2 class="manifesto-heading">The institution</h2>
-        <p class="manifesto-body">Fork is published by Neta DAO Academy, an educational subDAO of Neta DAO — a nonprofit public institution serving the Cosmos/Interchain. The journal is open access, community-governed, and committed to the principle that intellectual life is a public good. No paywalls. No fees to publish.</p>
-      </div>
-    </div>
-  </div>
-
-  <!-- ── Scope ── -->
-  <div class="section reveal" id="scope">
-    <div class="section-inner">
-      <p class="section-label">Scope</p>
-      <h2 style="font-family:var(--font-display);font-size:clamp(32px,4vw,56px);font-weight:900;text-transform:uppercase;line-height:0.95;max-width:700px;">We publish work on the politics, theory, and philosophy of the Interchain.</h2>
-    </div>
-    <div class="scope-grid">
-      <div class="scope-item"><h4>Governance</h4><p>On-chain and off-chain governance mechanisms, DAO constitutions, voting systems, token-weighted democracy, and the political theory of decentralized decision-making.</p></div>
-      <div class="scope-item"><h4>Political Economy</h4><p>Cryptocurrency and monetary theory, tokenomics, DeFi, financialization, surplus value in blockchain systems, and the political economy of the Cosmos ecosystem.</p></div>
-      <div class="scope-item"><h4>Philosophy</h4><p>Post-structuralist, psychoanalytic, and critical theory approaches to Web3. Philosophy of technology, sovereignty, constituent power, and the ontology of decentralization.</p></div>
-      <div class="scope-item"><h4>Law and Rights</h4><p>Crypto regulation, securities law, smart contract theory, digital sovereignty, and the juridical status of DAOs and blockchain-native organizations.</p></div>
-    </div>
-  </div>
-
-  <!-- ── Editorial principles ── -->
   <div class="section reveal">
     <div style="display:grid;grid-template-columns:1fr 1fr;border-top:var(--rule);">
-      <div style="padding:56px 64px;border-right:var(--rule);">
+      <div style="padding:64px;border-right:var(--rule);">
         <p class="section-label">Editorial principles</p>
-        <h2 style="font-family:var(--font-display);font-size:40px;font-weight:900;text-transform:uppercase;line-height:1;margin-bottom:24px;">Open.<br>Rigorous.<br>Public.</h2>
-        <p style="font-size:14px;color:var(--dim);line-height:1.75;font-weight:300;">Fork is committed to open access — every article is freely available, forever. We charge no article processing fees. Peer review is double-blind. Editorial decisions are made independently of Neta DAO governance.</p>
+        <h2 style="font-family:'Barlow Condensed',sans-serif;font-size:clamp(44px,5vw,72px);font-weight:900;text-transform:uppercase;line-height:0.92;margin-bottom:28px;">Open.<br>Rigorous.<br>Public.</h2>
+        <p style="font-size:17px;color:var(--dim);line-height:1.85;font-weight:300;max-width:480px;">Open access — every article freely available, forever. No processing fees. Double-blind peer review. Editorial decisions independent of Neta DAO governance.</p>
       </div>
-      <div style="padding:56px 64px;">
-        <div style="border-top:1px solid #1a1a1a;padding:20px 0;">
-          <p style="font-family:var(--font-mono);font-size:10px;color:var(--dim);letter-spacing:0.08em;text-transform:uppercase;margin-bottom:8px;">Article types</p>
-          <p style="font-size:14px;color:var(--paper);line-height:1.8;">Research articles (500–15,000 words)<br>Review essays · Interventions and responses<br>Translations with critical introductions<br>Creative and artistic submissions<br>Memoir · Manifesto · Whitepaper · Speculation</p>
+      <div style="padding:64px;">
+        <div style="margin-bottom:28px;">
+          <p style="font-family:'IBM Plex Mono',monospace;font-size:10px;color:var(--dim);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:12px;">Article types</p>
+          <p style="font-size:16px;color:var(--paper);line-height:2.0;">Research articles (500–15,000 words)<br>Review essays · Interventions<br>Memoir · Manifesto · Whitepaper<br>Creative and artistic submissions</p>
         </div>
-        <div style="border-top:1px solid #1a1a1a;padding:20px 0;">
-          <p style="font-family:var(--font-mono);font-size:10px;color:var(--dim);letter-spacing:0.08em;text-transform:uppercase;margin-bottom:8px;">Contact</p>
-          <p style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--paper);">journal@netadao.zone</p>
+        <div style="border-top:1px solid #1a1a1a;padding-top:24px;margin-bottom:28px;">
+          <p style="font-family:'IBM Plex Mono',monospace;font-size:10px;color:var(--dim);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:12px;">Contact</p>
+          <p style="font-family:'IBM Plex Mono',monospace;font-size:14px;color:var(--paper);">journal@netadao.zone</p>
         </div>
-        <div style="border-top:1px solid #1a1a1a;padding:20px 0 0;">
-          <a href="/submit.html" class="btn btn-primary" style="font-size:10px;padding:12px 20px;">Submit or register interest →</a>
-        </div>
+        <a href="/submit.html" class="btn btn-primary">Submit or register interest →</a>
       </div>
     </div>
   </div>
@@ -406,12 +369,13 @@
       </div>
       <div class="footer-right">
         <ul class="footer-links">
-          <li><a href="/">About</a></li>
+          <li><a href="/">Home</a></li>
+          <li><a href="/about.html">About</a></li>
+          <li><a href="/scope.html">Scope</a></li>
           <li><a href="/statement.html">Editor's Statement</a></li>
           <li><a href="/submit.html">Submit / CFP</a></li>
           <li><a href="https://academy.netadao.org">Neta DAO Academy ↗</a></li>
           <li><a href="https://netadao.org">Neta DAO ↗</a></li>
-          <li><a href="https://github.com/NetaDAOAcademy" target="_blank" rel="noopener">GitHub ↗</a></li>
         </ul>
       </div>
     </div>
@@ -428,7 +392,6 @@
       }, { threshold: 0.08 });
       revealEls.forEach(el => obs.observe(el));
     }
-    document.getElementById('nav-home')?.classList.add('active-nav');
   </script>
 </body>
 </html>
