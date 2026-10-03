@@ -5,394 +5,46 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Scope — Fork</title>
   <meta name="description" content="The scope of Fork: The Journal of Interchain Theory and Politics." />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;700;900&family=IBM+Plex+Mono:wght@400;500&family=Barlow:wght@300;400&display=swap" rel="stylesheet" />
-  <style>
-    :root {
-      --ink:   #050505;
-      --paper: #f0ede6;
-      --dim:   #888;
-      --pink:  #C9338A;
-      --blue:  #5B8EF0;
-      --rule:  3px solid #050505;
-      --thin:  1px solid #1a1a1a;
-      --font-display: 'Barlow Condensed', sans-serif;
-      --font-body:    'Barlow', sans-serif;
-      --font-mono:    'IBM Plex Mono', monospace;
-    }
-
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
-    body {
-      background: var(--ink);
-      color: var(--paper);
-      font-family: var(--font-body);
-      -webkit-font-smoothing: antialiased;
-    }
-    a { color: inherit; text-decoration: none; }
-
-    .grad-text {
-      background: linear-gradient(90deg, #C9338A 0%, #5B8EF0 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-
-    /* ── Nav strip ── */
-    .nav {
-      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-      border-bottom: var(--rule); background: var(--ink);
-      display: flex; align-items: stretch; height: 52px;
-    }
-    .nav-home {
-      font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.1em;
-      text-transform: uppercase; color: var(--dim);
-      display: flex; align-items: center; padding: 0 20px;
-      border-right: var(--rule); transition: color 0.15s;
-    }
-    .nav-home:hover { color: var(--paper); }
-    .nav-title {
-      font-family: var(--font-display); font-size: 18px; font-weight: 900;
-      text-transform: uppercase; letter-spacing: 0.02em;
-      display: flex; align-items: center; padding: 0 24px;
-    }
-    .nav-right {
-      margin-left: auto; display: flex; align-items: stretch;
-    }
-    .nav-right a {
-      font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.08em;
-      text-transform: uppercase; color: var(--dim);
-      display: flex; align-items: center; padding: 0 18px;
-      border-left: var(--rule); transition: color 0.15s;
-    }
-    .nav-right a:hover { color: var(--paper); }
-
-    /* ── Cover — full viewport ── */
-    .cover {
-      display: grid;
-      grid-template-rows: 1fr auto;
-      border-bottom: var(--rule);
-      padding-top: 52px;
-    }
-    .cover-main {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      border-bottom: var(--rule);
-    }
-    .cover-title-panel {
-      padding: 72px 64px;
-      border-right: var(--rule);
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-end;
-    }
-    .fork-label {
-      font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.14em;
-      text-transform: uppercase; color: var(--dim); margin-bottom: 24px;
-    }
-    .fork-name {
-      font-family: var(--font-display);
-      font-size: clamp(96px, 14vw, 180px);
-      font-weight: 900;
-      text-transform: uppercase;
-      line-height: 0.85;
-      letter-spacing: -0.02em;
-      margin-bottom: 28px;
-    }
-    .fork-subtitle {
-      font-family: var(--font-display);
-      font-size: clamp(18px, 2.5vw, 28px);
-      font-weight: 400;
-      text-transform: uppercase;
-      letter-spacing: 0.04em;
-      color: var(--dim);
-      line-height: 1.3;
-      max-width: 480px;
-    }
-    .cover-info-panel {
-      padding: 72px 64px;
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-end;
-    }
-    .cover-meta {
-      font-family: var(--font-mono); font-size: 10px;
-      color: var(--dim); letter-spacing: 0.06em; text-transform: uppercase;
-      margin-bottom: 32px; line-height: 2;
-    }
-    .cover-meta span { color: var(--paper); }
-    .cover-statement {
-      font-size: 16px; font-weight: 300; color: var(--paper);
-      line-height: 1.8; max-width: 480px; margin-bottom: 40px;
-    }
-    .cover-cta { display: flex; gap: 0; }
-    .btn {
-      font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.08em;
-      text-transform: uppercase; padding: 14px 28px; cursor: pointer;
-      display: inline-flex; align-items: center; gap: 8px;
-      border: var(--rule); transition: all 0.15s;
-    }
-    .btn + .btn { border-left: none; }
-    .btn-primary { background: var(--paper); color: var(--ink); }
-    .btn-primary:hover { background: #d8d5ce; }
-    .btn-outline { background: transparent; color: var(--paper); }
-    .btn-outline:hover { background: #111; }
-
-    /* Issue number bar */
-    .cover-strip {
-      display: flex; align-items: center; justify-content: space-between;
-      padding: 16px 64px; border-top: none;
-    }
-    .cover-strip-label {
-      font-family: var(--font-mono); font-size: 10px; color: var(--dim);
-      letter-spacing: 0.1em; text-transform: uppercase;
-    }
-    .cover-strip-status {
-      font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.08em;
-      text-transform: uppercase; padding: 4px 12px; border: 1px solid var(--pink); color: var(--pink);
-    }
-
-    /* ── Manifesto section ── */
-    .section { border-bottom: var(--rule); }
-    .section-inner { padding: 72px 64px; }
-    .section-label {
-      font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.14em;
-      text-transform: uppercase; color: var(--dim); margin-bottom: 20px;
-      display: flex; align-items: center; gap: 12px;
-    }
-    .section-label::before { content: ''; display: block; width: 24px; height: 2px; background: currentColor; flex-shrink: 0; }
-    .manifesto-grid {
-      display: grid; grid-template-columns: 1fr 1fr; gap: 0;
-      border-top: var(--rule);
-    }
-    .manifesto-panel {
-      padding: 48px; border-right: var(--rule);
-    }
-    .manifesto-panel:last-child { border-right: none; }
-    .manifesto-panel:nth-child(n+3) { border-top: var(--rule); }
-    .manifesto-num {
-      font-family: var(--font-mono); font-size: 10px; color: var(--dim);
-      letter-spacing: 0.08em; margin-bottom: 20px; display: block;
-    }
-    .manifesto-heading {
-      font-family: var(--font-display); font-size: 28px; font-weight: 900;
-      text-transform: uppercase; line-height: 1; margin-bottom: 16px;
-    }
-    .manifesto-body { font-size: 14px; color: var(--dim); line-height: 1.75; font-weight: 300; }
-
-    /* ── Scope ── */
-    .scope-grid {
-      display: grid; grid-template-columns: repeat(4, 1fr);
-      border-top: var(--rule);
-    }
-    .scope-item {
-      padding: 32px 28px; border-right: var(--rule);
-    }
-    .scope-item:last-child { border-right: none; }
-    .scope-item h4 {
-      font-family: var(--font-display); font-size: 20px; font-weight: 900;
-      text-transform: uppercase; margin-bottom: 10px;
-    }
-    .scope-item p { font-size: 13px; color: var(--dim); line-height: 1.7; }
-
-    /* ── Submissions form ── */
-    .submissions-grid {
-      display: grid; grid-template-columns: 1fr 1fr;
-      border-top: var(--rule);
-    }
-    .submissions-info { padding: 56px 64px; border-right: var(--rule); }
-    .submissions-form-panel { padding: 56px 64px; }
-    .form-group { margin-bottom: 24px; }
-    .form-label {
-      font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.1em;
-      text-transform: uppercase; color: var(--dim); display: block; margin-bottom: 8px;
-    }
-    .form-input, .form-select, .form-textarea {
-      width: 100%; background: #0d0d0d; border: var(--thin);
-      color: var(--paper); font-family: var(--font-body); font-size: 14px;
-      padding: 12px 14px; outline: none; transition: border-color 0.15s;
-      -webkit-appearance: none;
-    }
-    .form-input:focus, .form-select:focus, .form-textarea:focus { border-color: var(--blue); }
-    .form-textarea { resize: vertical; min-height: 120px; }
-    .form-select { cursor: pointer; }
-    .form-select option { background: #111; }
-    .form-note { font-size: 12px; color: var(--dim); line-height: 1.65; margin-top: 20px; }
-
-    /* ── Footer ── */
-    .footer { border-top: var(--rule); }
-    .footer-inner {
-      display: grid; grid-template-columns: 1fr auto;
-      border-bottom: var(--rule);
-    }
-    .footer-left { padding: 32px 64px; border-right: var(--rule); }
-    .footer-right { padding: 32px 48px; }
-    .footer-name {
-      font-family: var(--font-display); font-size: 24px; font-weight: 900;
-      text-transform: uppercase; margin-bottom: 6px;
-    }
-    .footer-tagline { font-family: var(--font-mono); font-size: 10px; color: var(--dim); letter-spacing: 0.06em; }
-    .footer-links { list-style: none; display: flex; flex-direction: column; gap: 8px; }
-    .footer-links a { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--dim); transition: color 0.15s; }
-    .footer-links a:hover { color: var(--paper); }
-    .footer-bottom { padding: 14px 64px; display: flex; justify-content: space-between; align-items: center; }
-    .footer-copy { font-family: var(--font-mono); font-size: 10px; color: #333; }
-    .footer-publisher { font-family: var(--font-mono); font-size: 10px; color: var(--dim); margin-top: 8px; }
-    .footer-publisher a { color: var(--dim); text-decoration: underline; text-underline-offset: 3px; }
-    .footer-dao { display: inline-block; margin-top: 20px; transition: opacity 0.15s; }
-    .footer-dao img { display: block; width: auto; height: 28px; }
-    .footer-dao:hover { opacity: 0.72; }
-
-    /* ── Animations ── */
-    .reveal { opacity: 0; transform: translateY(12px); transition: opacity 0.5s ease, transform 0.5s ease; }
-    .reveal.visible { opacity: 1; transform: translateY(0); }
-    @media (prefers-reduced-motion: reduce) { .reveal { opacity: 1; transform: none; transition: none; } }
-
-    /* ── Responsive ── */
-    @media (max-width: 900px) {
-      .cover-main { grid-template-columns: 1fr; }
-      .cover-title-panel { border-right: none; border-bottom: var(--rule); padding: 56px 36px; }
-      .cover-info-panel { padding: 48px 36px; }
-      .cover-strip { padding: 14px 36px; }
-      .section-inner { padding: 48px 36px; }
-      .manifesto-grid { grid-template-columns: 1fr; }
-      .manifesto-panel { border-right: none; border-bottom: var(--rule); }
-      .manifesto-panel:last-child { border-bottom: none; }
-      .manifesto-panel:nth-child(n+3) { border-top: none; }
-      .scope-grid { grid-template-columns: 1fr 1fr; }
-      .scope-item:nth-child(2n) { border-right: none; }
-      .scope-item:nth-child(n+3) { border-top: var(--rule); }
-      .submissions-grid { grid-template-columns: 1fr; }
-      .submissions-info { border-right: none; border-bottom: var(--rule); padding: 48px 36px; }
-      .submissions-form-panel { padding: 48px 36px; }
-      .footer-inner { grid-template-columns: 1fr; }
-      .footer-left { border-right: none; border-bottom: var(--rule); padding: 28px 36px; }
-      .footer-right { padding: 28px 36px; }
-      .footer-bottom { padding: 14px 36px; flex-direction: column; gap: 8px; align-items: flex-start; }
-    }
-    @media (max-width: 640px) {
-      .nav-title { display: none; }
-      .fork-name { font-size: clamp(72px, 18vw, 120px); }
-      .scope-grid { grid-template-columns: 1fr; }
-      .scope-item { border-right: none; border-bottom: var(--rule); }
-      .scope-item:last-child { border-bottom: none; }
-      .nav-right a:not(:last-child) { display: none; }
-    }
-  
-  .active-nav { color: var(--paper) !important; }
-  .nav-logo-link { text-decoration: none; transition: opacity 0.15s; }
-  .nav-logo-link:hover { opacity: 0.8; }</style>
+  <meta name="theme-color" content="#f7f7f4" />
+  <link rel="preload" href="/ds/fonts/Newsreader.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="stylesheet" href="/ds/tokens.css?v=1" />
+  <link rel="stylesheet" href="/ds/bundle.css?v=1" />
+  <script src="/ds/bundle.js?v=1" defer></script>
   <script src="https://netadao.org/radio/radio.js" defer></script>
 </head>
-<body>
-
-  <nav class="nav">
-    <a href="https://netadao.org" class="nav-home">← Neta DAO</a>
-    <a href="/" class="nav-logo-link" style="display:flex;align-items:center;padding:0 16px;border-right:var(--rule);border-left:var(--rule);"><svg viewBox="0 0 160 66" width="80" height="33" xmlns="http://www.w3.org/2000/svg">
-        <defs>
-          <clipPath id="nt"><polygon points="0,0 160,0 160,28 0,38"/></clipPath>
-          <clipPath id="nb"><polygon points="4,40 164,30 164,73 4,73"/></clipPath>
-          <linearGradient id="ng2" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#C9338A"/><stop offset="100%" stop-color="#5B8EF0"/></linearGradient>
-        </defs>
-        <polygon points="0,37 160,27 160,31 0,41" fill="url(#ng2)" opacity="0.95"/>
-        <text clip-path="url(#nt)" x="0" y="56" font-family="'Barlow Condensed', sans-serif" font-weight="900" font-size="56" fill="#f0ede6" letter-spacing="-1">FORK</text>
-        <text clip-path="url(#nb)" x="4" y="59" font-family="'Barlow Condensed', sans-serif" font-weight="900" font-size="56" fill="#f0ede6" letter-spacing="-1">FORK</text>
-      </svg></a>
-    <div class="nav-right">
-      <a href="/about.html">About</a>
-      <a href="/scope.html" class="active-nav">Scope</a>
-      <a href="/cfp.html">CFP</a>
-      <a href="/submit.html">Submit</a>
-      <a href="https://academy.netadao.org">Academy ↗</a>
-    </div>
-  </nav>
-
-  <div style="margin-top:52px;">
-    <div style="padding:64px;border-bottom:var(--rule);">
-      <p style="font-family:'IBM Plex Mono',monospace;font-size:10px;color:var(--dim);letter-spacing:0.12em;text-transform:uppercase;margin-bottom:16px;">Journal Scope</p>
-      <h1 style="font-family:'Barlow Condensed',sans-serif;font-size:clamp(36px,5vw,64px);font-weight:900;text-transform:uppercase;line-height:0.95;max-width:760px;">We publish work on the politics, theory, and philosophy of the Interchain.</h1>
-    </div>
-
-    <div>
-      <div style="display:grid;grid-template-columns:140px 1fr;border-bottom:var(--rule);">
-        <div style="padding:48px 32px;border-right:var(--rule);display:flex;align-items:flex-start;padding-top:52px;">
-          <span style="font-family:'Barlow Condensed',sans-serif;font-size:72px;font-weight:900;line-height:1;color:#1e1e1e;">01</span>
-        </div>
-        <div style="padding:52px 64px;">
-          <h2 style="font-family:'Barlow Condensed',sans-serif;font-size:clamp(32px,4vw,52px);font-weight:900;text-transform:uppercase;line-height:1;margin-bottom:20px;">Governance</h2>
-          <p style="font-size:18px;color:var(--dim);line-height:1.9;font-weight:300;max-width:640px;">On-chain and off-chain governance mechanisms, DAO constitutions, voting systems, and token-weighted democracy. The political theory of decentralized decision-making — who holds power, how it is contested, and what accountability means when the state is not present.</p>
-        </div>
-      </div>
-      <div style="display:grid;grid-template-columns:140px 1fr;border-bottom:var(--rule);">
-        <div style="padding:48px 32px;border-right:var(--rule);display:flex;align-items:flex-start;padding-top:52px;">
-          <span style="font-family:'Barlow Condensed',sans-serif;font-size:72px;font-weight:900;line-height:1;color:#1e1e1e;">02</span>
-        </div>
-        <div style="padding:52px 64px;">
-          <h2 style="font-family:'Barlow Condensed',sans-serif;font-size:clamp(32px,4vw,52px);font-weight:900;text-transform:uppercase;line-height:1;margin-bottom:20px;">Political Economy</h2>
-          <p style="font-size:18px;color:var(--dim);line-height:1.9;font-weight:300;max-width:640px;">Cryptocurrency and monetary theory, tokenomics, DeFi, financialization, and surplus value in blockchain systems. The political economy of the Cosmos ecosystem — its production of value, its distribution of risk, and its relationship to the broader history of money.</p>
-        </div>
-      </div>
-      <div style="display:grid;grid-template-columns:140px 1fr;border-bottom:var(--rule);">
-        <div style="padding:48px 32px;border-right:var(--rule);display:flex;align-items:flex-start;padding-top:52px;">
-          <span style="font-family:'Barlow Condensed',sans-serif;font-size:72px;font-weight:900;line-height:1;color:#1e1e1e;">03</span>
-        </div>
-        <div style="padding:52px 64px;">
-          <h2 style="font-family:'Barlow Condensed',sans-serif;font-size:clamp(32px,4vw,52px);font-weight:900;text-transform:uppercase;line-height:1;margin-bottom:20px;">Philosophy</h2>
-          <p style="font-size:18px;color:var(--dim);line-height:1.9;font-weight:300;max-width:640px;">Post-structuralist, psychoanalytic, and critical theory approaches to Web3. Philosophy of technology, sovereignty, constituent power, and the ontology of decentralization. The question of what kind of creatures we are, such that we build these systems.</p>
-        </div>
-      </div>
-      <div style="display:grid;grid-template-columns:140px 1fr;">
-        <div style="padding:48px 32px;border-right:var(--rule);display:flex;align-items:flex-start;padding-top:52px;">
-          <span style="font-family:'Barlow Condensed',sans-serif;font-size:72px;font-weight:900;line-height:1;color:#1e1e1e;">04</span>
-        </div>
-        <div style="padding:52px 64px;">
-          <h2 style="font-family:'Barlow Condensed',sans-serif;font-size:clamp(32px,4vw,52px);font-weight:900;text-transform:uppercase;line-height:1;margin-bottom:20px;">Law and Rights</h2>
-          <p style="font-size:18px;color:var(--dim);line-height:1.9;font-weight:300;max-width:640px;">Crypto regulation, securities law, smart contract theory, digital sovereignty, and the juridical status of DAOs and blockchain-native organizations. The gap between existing legal frameworks and the entities they struggle to comprehend.</p>
-        </div>
-      </div>
-    </div>
-
-    <div style="padding:32px 64px;border-top:var(--rule);display:flex;gap:0;">
-      <a href="/submit.html" class="btn btn-primary">Submit to Vol. 1 →</a>
-      <a href="/cfp.html" class="btn btn-outline">Call for Papers</a>
-      <a href="/about.html" class="btn btn-outline">About Fork</a>
+<body class="fk-page">
+<a class="fk-skip" href="#main">Skip to content</a><header class="fk-header fk-header--compact">
+  <div class="fk-wrap">
+    <div class="fk-header__row">
+      <a class="fk-header__home" href="/" aria-label="Fork, home"><span class="fk-mark fk-mark--compact"><svg viewBox="0 25 240 65" aria-hidden="true" focusable="false"><defs><linearGradient id="fk-slash" x1="0" x2="1" y1="0" y2="0"><stop offset="0" stop-color="#C9338A"/><stop offset="1" stop-color="#5B8EF0"/></linearGradient></defs><path class="fk-mark__slash" pathLength="1" stroke="url(#fk-slash)" d="M0 58.5 240 43.5"/><path class="fk-mark__top" d="M111.7 50.02 75.13 52.3V26.46Q75.13 25.87 75.46 25.54Q75.8 25.2 76.39 25.2H95.29Q100.33 25.2 104.23 27.59Q108.14 29.99 110.32 34.23Q112.51 38.47 112.51 43.93Q112.51 47.22 111.7 50.02ZM73.26 52.42 57.47 53.41V41.83Q57.47 40.07 56.72 39.06Q55.96 38.05 54.62 38.05Q53.27 38.05 52.52 39.06Q51.76 40.07 51.76 41.83V53.76L35.97 54.75V42.5Q35.97 34.27 41.05 29.4Q46.13 24.53 54.62 24.53Q63.1 24.53 68.18 29.4Q73.26 34.27 73.26 42.5V52.42ZM34.52 38.72H18.48Q17.98 38.72 17.98 39.23V47.29Q17.98 47.8 18.48 47.8H26.8Q27.38 47.8 27.72 48.13Q28.06 48.47 28.06 49.06V55.25L2.18 56.86V26.46Q2.18 25.87 2.52 25.54Q2.86 25.2 3.44 25.2H34.52Q35.11 25.2 35.45 25.54Q35.78 25.87 35.78 26.46V37.46Q35.78 38.05 35.45 38.39Q35.11 38.72 34.52 38.72ZM143.93 48 114.29 49.86V26.46Q114.29 25.87 114.62 25.54Q114.96 25.2 115.55 25.2H128.82Q129.41 25.2 129.74 25.54Q130.08 25.87 130.08 26.46V43.09Q130.08 43.43 130.29 43.47Q130.5 43.51 130.67 43.18L137.72 26.21Q138.14 25.2 139.24 25.2H153.1Q153.77 25.2 154.1 25.62Q154.44 26.04 154.1 26.71L143.93 48ZM91.42 38.72Q90.92 38.72 90.92 39.23V48.89Q90.92 49.39 91.42 49.39H92.52Q94.36 49.39 95.54 48.01Q96.72 46.62 96.72 44.1Q96.72 41.5 95.58 40.11Q94.45 38.72 92.52 38.72Z"/><path class="fk-mark__bottom" d="M120.29 87.74V52.86L150.91 50.94L148.26 56.49Q148.18 56.83 148.26 57.16L160.44 87.57Q160.52 87.82 160.52 88.16Q160.52 89 159.43 89H145.49Q144.4 89 143.98 87.99L137.51 70.77Q137.42 70.35 137.21 70.35Q137 70.35 136.84 70.77L136.16 72.45Q136.08 72.62 136.08 73.12V87.74Q136.08 88.33 135.74 88.66Q135.41 89 134.82 89H121.55Q120.96 89 120.62 88.66Q120.29 88.33 120.29 87.74ZM102.72 87.91 97.59 66.82Q97.42 66.4 97.26 66.4Q96.92 66.4 96.92 66.91V87.74Q96.92 88.33 96.58 88.66Q96.25 89 95.66 89H82.39Q81.8 89 81.46 88.66Q81.13 88.33 81.13 87.74V55.3L97.09 54.31Q97.22 54.39 97.42 54.39H98.52Q99.33 54.39 100.01 54.12L118.17 52.99Q117.77 55.24 116.91 57.21Q115.32 60.86 112.29 63.13Q111.96 63.38 112.04 63.8L118.84 87.57Q118.93 87.74 118.93 87.99Q118.93 89 117.75 89H104.06Q102.97 89 102.72 87.91ZM41.97 71.7V57.75L57.76 56.76V72.37Q57.76 74.13 58.52 75.14Q59.27 76.15 60.62 76.15Q61.96 76.15 62.72 75.14Q63.47 74.13 63.47 72.37V56.41L79.26 55.42V71.7Q79.26 79.93 74.18 84.8Q69.1 89.67 60.62 89.67Q52.13 89.67 47.05 84.8Q41.97 79.93 41.97 71.7ZM34.06 58.25V65.06Q34.06 65.65 33.72 65.98Q33.38 66.32 32.8 66.32H24.48Q23.98 66.32 23.98 66.82V87.74Q23.98 88.33 23.64 88.66Q23.3 89 22.72 89H9.44Q8.86 89 8.52 88.66Q8.18 88.33 8.18 87.74V59.86L34.06 58.25Z"/></svg></span></a>
+      <span class="fk-header__subtitle">The Journal of Interchain Theory and Politics</span>
+      <nav class="fk-nav" aria-label="Main"><a href="/about.html">About</a><a href="/scope.html" aria-current="page">Scope</a><a href="/cfp.html">Call for Papers</a><a href="/submit.html">Submit</a><a href="https://academy.netadao.org">Academy ↗</a></nav>
     </div>
   </div>
-
-  <footer class="footer">
-    <div class="footer-inner">
-      <div class="footer-left">
-        <p class="footer-name"><span class="grad-text">Fork</span></p>
-        <p class="footer-tagline">The Journal of Interchain Theory and Politics</p>
-        <p class="footer-publisher">Published by <a href="https://academy.netadao.org">Neta DAO Academy</a></p>
-        <a class="footer-dao" href="https://netadao.org" aria-label="Neta DAO"><img src="/assets/neta-mark-night.png" alt="" width="251" height="192"></a>
-      </div>
-      <div class="footer-right">
-        <ul class="footer-links">
-          <li><a href="/">Home</a></li>
-          <li><a href="/about.html">About</a></li>
-          <li><a href="/scope.html">Scope</a></li>
-          <li><a href="/cfp.html">Call for Papers</a></li>
-          <li><a href="/submit.html">Submit</a></li>
-          <li><a href="https://academy.netadao.org">Neta DAO Academy ↗</a></li>
-          <li><a href="https://netadao.org">Neta DAO ↗</a></li>
-        </ul>
-      </div>
+</header>
+<main id="main" class="fk-wrap">
+  <section class="fk-section fk-section--open" aria-labelledby="scope-title">
+    <div class="fk-titleblock">
+      <p class="fk-label fk-label--issue">Journal scope</p>
+      <h1 class="fk-title" id="scope-title">We publish work on the politics, theory, and philosophy of the Interchain.</h1>
     </div>
-    <div class="footer-bottom">
-      <p class="footer-copy">© Neta DAO Academy. Open access. No rights reserved.</p>
-      <p class="footer-copy">fork.netadao.org</p>
+  </section>
+  <div class="fk-divider" aria-hidden="true"><svg viewBox="0 0 1280 80" preserveAspectRatio="none" focusable="false"><path class="fk-divider__trunk" d="M0 40H540"/><path class="fk-divider__branch--a" d="M540 40C700 40 760 6 1280 6"/><path class="fk-divider__branch--b" d="M540 40C700 40 760 74 1280 74"/></svg></div>
+  <section class="fk-section" aria-label="Areas"><div class="fk-areas fk-areas--wide"><article class="fk-area"><span class="fk-area__no">01</span><h2 class="fk-area__title">Governance</h2><p class="fk-area__text">On-chain and off-chain governance mechanisms, DAO constitutions, voting systems, and token-weighted democracy.</p><p class="fk-area__text">The political theory of decentralized decision-making — who holds power, how it is contested, and what accountability means when the state is not present.</p></article><article class="fk-area"><span class="fk-area__no">02</span><h2 class="fk-area__title">Political Economy</h2><p class="fk-area__text">Cryptocurrency and monetary theory, tokenomics, DeFi, financialization, and surplus value in blockchain systems.</p><p class="fk-area__text">The political economy of the Cosmos ecosystem — its production of value, its distribution of risk, and its relationship to the broader history of money.</p></article><article class="fk-area"><span class="fk-area__no">03</span><h2 class="fk-area__title">Philosophy</h2><p class="fk-area__text">Post-structuralist, psychoanalytic, and critical theory approaches to Web3. Philosophy of technology, sovereignty, constituent power, and the ontology of decentralization.</p><p class="fk-area__text">The question of what kind of creatures we are, such that we build these systems.</p></article><article class="fk-area"><span class="fk-area__no">04</span><h2 class="fk-area__title">Law and Rights</h2><p class="fk-area__text">Crypto regulation, securities law, smart contract theory, digital sovereignty, and the juridical status of DAOs and blockchain-native organizations.</p><p class="fk-area__text">The gap between existing legal frameworks and the entities they struggle to comprehend.</p></article></div></section>
+  <section class="fk-section fk-section--open">
+    <div class="fk-buttons"><a class="fk-button" href="/submit.html">Submit work</a><a class="fk-button fk-button--outline" href="/cfp.html">Call for papers</a></div>
+  </section>
+</main>
+<footer class="fk-footer">
+  <div class="fk-wrap fk-footer__inner">
+    <div class="fk-footer__brand">
+      <a href="https://netadao.org" aria-label="Neta DAO"><img src="/assets/neta-mark-paper.png" alt="" width="251" height="192"></a>
+      <div class="fk-footer__names"><span class="fk-footer__title">Fork · The Journal of Interchain Theory and Politics</span><span class="fk-footer__by">Published by <a href="https://academy.netadao.org">Neta DAO Academy</a></span></div>
     </div>
-  </footer>
-  <script>
-    const revealEls = document.querySelectorAll('.reveal');
-    if (revealEls.length) {
-      const obs = new IntersectionObserver(entries => {
-        entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
-      }, { threshold: 0.08 });
-      revealEls.forEach(el => obs.observe(el));
-    }
-  </script>
+    <nav class="fk-footer__nav" aria-label="Footer"><a href="/about.html">About</a><a href="/scope.html">Scope</a><a href="/cfp.html">Call for Papers</a><a href="/submit.html">Submit</a><a href="https://netadao.org">Neta DAO ↗</a></nav>
+    <p class="fk-footer__print">© Neta DAO Academy. Open access. No rights reserved. · fork.netadao.org</p>
+  </div>
+</footer>
+<script>document.addEventListener('DOMContentLoaded', function () { if (window.Fork) Fork.enhance(); });</script>
 </body>
 </html>
