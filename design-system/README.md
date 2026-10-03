@@ -10,7 +10,8 @@ Fork is the Journal of Interchain Theory and Politics, an annual, open-access, p
 ## Content fundamentals
 
 - **Voice**: a scholarly journal speaking plainly to its contributors and readers. Exact, unhurried, without hype. Its own sentences are the model: "Fork publishes theoretical and critical work on the politics of decentralized systems." "We take blockchain seriously as a site of political and intellectual contestation, not merely technical innovation."
-- **We and you**: the journal is "we"; the reader and contributor are "you" only in instructions ("Write to academy@netadao.org").
+- **We and you**: the journal is "we"; the reader and contributor are "you" only in instructions ("Send submissions and pitches to academy@netadao.org").
+- **Addresses**: written out as plain text, never a `mailto:` link (people close the mail app and the message is lost). What a reader sends us, such as a registration of interest, goes through a form that posts to the Academy's database and appears in its Admin (see Field).
 - **Names**: "Fork" in running text and headings (the mark is the only FORK in capitals); "Fork: The Journal of Interchain Theory and Politics" in full; "Neta DAO Academy" (DAO in capitals) as publisher; "Neta DAO"; "the Interchain"; "Web3"; "Coining Reason" for the seminar.
 - **Volumes**: "Vol. 0", "Vol. 1". The first is "Vol. 0 · Inaugural issue". A volume has a theme, its title: "The Event of Web3 and the Question Concerning Technology".
 - **Casing**: sentence case in the source; CSS sets the capitals of labels, navigation and buttons. Titles of pieces keep their authors' casing.

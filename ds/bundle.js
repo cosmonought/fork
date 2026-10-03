@@ -54,33 +54,62 @@
     io.observe(el);
   };
 
-  /* Register interest: the site has no server, so the form writes the message into the visitor's mail app
-     (data-fk-mailto names the address) and then shows its done note (the form's [data-fk-done] sibling). */
+  /* Register interest: the form sends its named fields, as one record, to the list data-fk-store names (a Firebase
+     Realtime Database URL ending in the list; the database's rules decide what it accepts), stamped with the server's
+     time and data-fk-source. If the list refuses the record, data-fk-fallback names a second list to try. Once a list
+     has it, the form gives way to its done note (the [data-fk-done] sibling); if none has it, the form stays, filled in,
+     and its [data-fk-error] note says so. Without data-fk-store (a preview) the form only shows its done note.
+     Nothing here opens the visitor's mail app. */
+  function send(url, record) {
+    // a plain-text body keeps this a simple request (no CORS preflight); the database reads it as JSON
+    return fetch(url.replace(/\/+$/, '') + '.json', { method: 'POST', body: JSON.stringify(record) }).then(function (r) {
+      if (r.ok) return r;
+      var e = new Error('Not accepted (' + r.status + ')'); e.status = r.status; throw e;
+    });
+  }
   Fork.form = function (form) {
     if (form.__fkForm) return;
     form.__fkForm = true;
+    var button = form.querySelector('[type="submit"]'), label = button ? button.innerHTML : '';
+    var error = form.querySelector('[data-fk-error]'), busy = false;
+    function wait(on) {
+      busy = on;
+      form.setAttribute('aria-busy', on ? 'true' : 'false');
+      if (button) { button.disabled = on; button.innerHTML = on ? (button.getAttribute('data-fk-busy') || 'Sending…') : label; }
+    }
+    function finished() {
+      var done = form.parentNode && form.parentNode.querySelector('[data-fk-done]');
+      form.reset();
+      if (!done) return;
+      form.hidden = true; done.hidden = false;
+      done.setAttribute('tabindex', '-1'); if (done.focus) done.focus();
+    }
     form.addEventListener('submit', function (ev) {
       ev.preventDefault();
+      if (busy) return;
+      if (error) error.hidden = true;
       if (form.checkValidity && !form.checkValidity()) { if (form.reportValidity) form.reportValidity(); return; }
-      var to = form.getAttribute('data-fk-mailto');
-      var lines = [];
+      var store = form.getAttribute('data-fk-store'), fallback = form.getAttribute('data-fk-fallback');
+      if (!store || !window.fetch) { finished(); return; }
+      var record = {};
       each(form, 'input, select, textarea', function (f) {
-        if (!f.name || f.type === 'submit') return;
+        if (!f.name || f.disabled || f.type === 'submit' || f.type === 'button') return;
         if ((f.type === 'checkbox' || f.type === 'radio') && !f.checked) return;
-        var label = form.querySelector('label[for="' + f.id + '"]'), name = f.name;
-        if (label) {   // the label's own words, without "(optional)"
-          var copy = label.cloneNode(true);
-          each(copy, '.fk-field__opt', function (o) { o.parentNode.removeChild(o); });
-          name = copy.textContent.replace(/\s+/g, ' ').trim();
-        }
-        lines.push(name + ': ' + (f.value.trim() || 'Not provided'));
+        var v = String(f.value || '').trim();
+        if (f.type === 'email') v = v.toLowerCase();
+        if (v) record[f.name] = v;   // an empty optional field is left out
       });
-      if (to) {
-        var subject = form.getAttribute('data-fk-subject') || 'Fork';
-        window.location.href = 'mailto:' + to + '?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(lines.join('\n'));
-      }
-      var done = form.parentNode && form.parentNode.querySelector('[data-fk-done]');
-      if (done) { form.hidden = true; done.hidden = false; if (done.focus) { done.setAttribute('tabindex', '-1'); done.focus(); } }
+      if (form.getAttribute('data-fk-source')) record.source = form.getAttribute('data-fk-source');
+      record.submittedAt = { '.sv': 'timestamp' };
+      wait(true);
+      send(store, record).catch(function (e) {
+        if (fallback && e.status && e.status < 500) return send(fallback, record);   // refused by the rules: the second list
+        throw e;
+      }).then(function () { wait(false); finished(); }, function () {
+        wait(false);
+        if (error) error.hidden = false;   // role="alert": announced where it appears
+        if (button && button.focus) button.focus();   // sending disabled it, which dropped the focus
+      });
     });
   };
 
@@ -90,6 +119,6 @@
     each(root, 'form[data-fk-form]', Fork.form);
   };
 
-  Fork.version = '1.0.0';
+  Fork.version = '1.1.0';
   window.Fork = Fork;
 })();

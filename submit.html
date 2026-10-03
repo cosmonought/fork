@@ -7,9 +7,9 @@
   <meta name="description" content="Submission guidelines and interest registration for Fork: The Journal of Interchain Theory and Politics." />
   <meta name="theme-color" content="#f7f7f4" />
   <link rel="preload" href="/ds/fonts/Newsreader.woff2" as="font" type="font/woff2" crossorigin />
-  <link rel="stylesheet" href="/ds/tokens.css?v=1" />
-  <link rel="stylesheet" href="/ds/bundle.css?v=1" />
-  <script src="/ds/bundle.js?v=1" defer></script>
+  <link rel="stylesheet" href="/ds/tokens.css?v=2" />
+  <link rel="stylesheet" href="/ds/bundle.css?v=2" />
+  <script src="/ds/bundle.js?v=2" defer></script>
   <script src="https://netadao.org/radio/radio.js" defer></script>
 </head>
 <body class="fk-page">
@@ -27,7 +27,7 @@
     <p class="fk-label fk-label--issue">Fork · Vol. 0 · Inaugural issue</p>
     <h1 class="fk-title" id="sub-title">Submit</h1>
   </section>
-  <dl class="fk-facts fk-facts--ruled"><div><dt>Written submissions due</dt><dd>15 January 2027</dd></div><div><dt>Artwork due</dt><dd>15 January 2027 · Color and B&amp;W</dd></div><div><dt>Contact</dt><dd><a href="mailto:academy@netadao.org">academy@netadao.org</a></dd></div></dl>
+  <dl class="fk-facts fk-facts--ruled"><div><dt>Written submissions due</dt><dd>15 January 2027</dd></div><div><dt>Artwork due</dt><dd>15 January 2027 · Color and B&amp;W</dd></div><div><dt>Contact</dt><dd>academy@netadao.org</dd></div></dl>
   <section class="fk-section" aria-labelledby="sub-register">
     <div class="fk-split">
       <div class="fk-split__label"><h2 class="fk-label" id="sub-register">Register interest</h2></div>
@@ -35,13 +35,14 @@
         <p class="fk-lede">Stay informed.</p>
         <p class="fk-copy" style="color: var(--ink);">Register below to receive the call for papers when we formally open submissions, or to be considered for the editorial board or peer reviewer pool.</p>
         <p class="fk-copy">In the meantime, engage with <a class="fk-link" href="https://academy.netadao.org">Neta DAO Academy ↗</a> and the Coining Reason seminar series, which provides the intellectual context for the journal's direction. Questions: <a class="fk-link" href="https://discord.com/invite/gvjC86WXC2">Neta DAO Discord ↗</a></p>
-        <form class="fk-form" data-fk-form data-fk-mailto="academy@netadao.org" data-fk-subject="Fork: register interest" style="margin-top: 12px;">
-          <div class="fk-field"><label for="sub-name">Name</label><input class="fk-input" id="sub-name" name="name" type="text" autocomplete="name" required></div>
-          <div class="fk-field"><label for="sub-email">Email</label><input class="fk-input" id="sub-email" name="email" type="email" autocomplete="email" required></div>
-          <div class="fk-field"><label for="sub-interest">Interest</label><select class="fk-select" id="sub-interest" name="interest"><option>Submitting work</option><option>Editorial board</option><option>Peer reviewing</option><option>General updates only</option></select></div>
-          <div class="fk-field"><label for="sub-area">Research area <span class="fk-field__opt">(optional)</span></label><input class="fk-input" id="sub-area" name="area" type="text"></div>
-          <p class="fk-field__help">Your information will only be used to contact you about Fork. Registering opens your email app with the message written for you to send.</p>
-          <button class="fk-button" type="submit" style="align-self: flex-start;">Register interest</button>
+        <form class="fk-form" data-fk-form data-fk-source="fork.netadao.org" data-fk-store="https://neta-dao-cinema-default-rtdb.firebaseio.com/forkInterests" data-fk-fallback="https://neta-dao-cinema-default-rtdb.firebaseio.com/interestSignups" style="margin-top: 12px;">
+          <div class="fk-field"><label for="sub-name">Name</label><input class="fk-input" id="sub-name" name="name" type="text" autocomplete="name" maxlength="80" required></div>
+          <div class="fk-field"><label for="sub-email">Email</label><input class="fk-input" id="sub-email" name="email" type="email" autocomplete="email" maxlength="120" required></div>
+          <div class="fk-field"><label for="sub-interest">Interest</label><select class="fk-select" id="sub-interest" name="interest"><option value="submitting">Submitting work</option><option value="editorial">Editorial board</option><option value="reviewing">Peer reviewing</option><option value="updates">General updates only</option></select></div>
+          <div class="fk-field"><label for="sub-area">Research area <span class="fk-field__opt">(optional)</span></label><input class="fk-input" id="sub-area" name="area" type="text" maxlength="200"></div>
+          <p class="fk-field__help">Your registration goes to the editors at Neta DAO Academy. We use it only to contact you about Fork.</p>
+          <p class="fk-field__error" data-fk-error role="alert" hidden>Your registration didn’t reach us. Check your connection and try again.</p>
+          <button class="fk-button" type="submit" data-fk-busy="Registering…" style="align-self: flex-start;">Register interest</button>
         </form>
         <p class="fk-form__done" data-fk-done hidden>Thank you. We'll be in touch when Fork opens submissions. In the meantime, join the community at the <a class="fk-link" href="https://discord.com/invite/gvjC86WXC2">Neta DAO Discord</a>.</p>
       </div>
