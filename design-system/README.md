@@ -1,4 +1,4 @@
-Fork is the Journal of Interchain Theory and Politics, an annual, open-access, peer-reviewed journal published by Neta DAO Academy. Its identity is an offprint on coloured stock: an ice blue-grey page, very dark charcoal-navy ink, a book face set for long reading, small mono capitals for the apparatus, hairline rules, and one colour per volume. Two things move: the cut Fork mark, once as you arrive, and the fork divider, a rule that splits in two as the page turns.
+Fork is the Journal of Interchain Theory and Politics, an annual, open-access, peer-reviewed journal published by Neta DAO Academy. Its identity is an offprint on grey stock: a light grey page, near-black ink, a book face set for long reading, small mono capitals for the apparatus, hairline rules, and one colour per volume. Two things move: the cut Fork mark, once as you arrive, and the fork divider, a rule that splits in two as the page turns.
 
 ## Using this system
 
@@ -26,8 +26,8 @@ Fork is the Journal of Interchain Theory and Politics, an annual, open-access, p
 
 ### Colour
 
-- The page is `paper`, an ice blue-grey stock: Fork's own colour, the one that tells it from the Academy's cream and netadao.org's black. On the Academy homepage, Fork's panel takes it on hover, with its type in Fork's `ink`.
-- Text, display type, rules that open lists, solid buttons and the mark are `ink`, a very dark charcoal navy (never pure black). Most of every page is these two.
+- The page is `paper`, a light grey stock, neutral with the faintest warmth: Fork's own colour, the one that tells it from the Academy's cream and netadao.org's black. On the Academy homepage, Fork's panel takes it on hover behind the Academy's own ink. (A pale blue was tried and read as selected text; the grey reads as paper.)
+- Text, display type, rules that open lists, solid buttons and the mark are `ink`, near-black (`#111111`, never pure black). Most of every page is these two.
 - `ink-2` for secondary copy, contributor names, captions and mono metadata. `rule` for hairlines between rows and sections.
 - `sheet` is the one raised surface: fields, and the submit box at the end of a reading page. Bordered by `rule`; nothing in the system has a shadow.
 - `issue` is the volume's colour, and the only colour. It marks what belongs to the volume: its cover (at full strength), the kicker above a title, numbers (contents, scope areas, § marks, notes), the pull quote, the underline of links in prose and one branch of the fork divider. Text on it is `on-issue`. `issue-tint` is for selected text and a note you jumped to, never a block.
