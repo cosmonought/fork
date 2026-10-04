@@ -1,16 +1,17 @@
 # ForkMark
 
-Fork's wordmark, FORK, cut in two by a slash: whole at rest, cut when you reach for it. It is the same cut mark the Neta DAO Academy and netadao.org use for the journal, with the same pink-to-blue slash.
+Fork's wordmark, FORK, cut in two by a slash: in the site's header it cuts once as you arrive and holds; elsewhere it is whole at rest and cut when you reach for it. It is the same cut mark the Neta DAO Academy and netadao.org use for the journal, with the same pink-to-blue slash.
 
 ## Use
-- It names the journal as a brand: the masthead on the homepage (inside the page's `h1`), the compact header on every other page. Not in running text, where you write "Fork", and never set FORK in type beside it.
+- It names the journal as a brand: at the left of the header strip on every page. Not in running text, where you write "Fork", and never set FORK in type beside it.
 - Inline SVG in `currentColor`, so it is `ink` on `paper` and `on-issue` on an `issue` fill (`fk-mark--on-issue`).
-- Sizes: `fk-mark--masthead` (clamp 180–280px), `fk-mark--compact` (150px); or give it a width. It scales from its 240×65 box; keep it at least 96px wide. Cutting it never changes the box: the lower half slips into room the box already holds.
+- Sizes: `fk-mark--bar` (112px, the header), `fk-mark--compact` (150px), `fk-mark--masthead` (clamp 180–280px, for a title page or a card); or give it a width. It scales from its 240×65 box; keep it at least 96px wide. Cutting it never changes the box: the lower half slips into room the box already holds.
 
 ## Motion
-- Hovering or focusing the mark, or the link around it, draws the slash left to right, pink to blue (340ms, fast then easing out) and, 70ms in, the lower half slips 6 units right and 5 down with a slight overshoot (460ms), opening the gap the slash shows through. Leaving closes the gap (300ms) and fades the slash (200ms).
-- Touch screens can't hover: there `Fork.enhance()` cuts the mark once, when three quarters of it is in view, and it stays cut.
-- Under reduced motion it switches between whole and cut with no drawing or slipping.
+- **In the header, on arrival**: `Fork.enhance()` leaves the mark whole for a beat (450ms), then cuts it, and it holds the cut. That happens once a visit (the first Fork page opened in the tab); every later page opens with the mark already cut (`is-cut is-held`, set by the header's inline script before the page paints, so it never replays or flashes). Hover changes nothing once it is cut.
+- **Elsewhere**: hovering or focusing the mark, or the link around it, draws the slash left to right, pink to blue (340ms, fast then easing out) and, 70ms in, the lower half slips 6 units right and 5 down with a slight overshoot (460ms), opening the gap the slash shows through. Leaving closes the gap (300ms) and fades the slash (200ms).
+- Touch screens can't hover: there `Fork.enhance()` cuts a mark outside the header once, when three quarters of it is in view, and it stays cut.
+- Under reduced motion it switches between whole and cut with no drawing or slipping; the header's mark is simply cut.
 - `is-cut` pins the cut state (as the preview's second mark does).
 
 ## You provide
@@ -26,4 +27,4 @@ Fork's wordmark, FORK, cut in two by a slash: whole at rest, cut when you reach 
 ```
 
 ## Don't
-- Don't recolour the slash, show it without the cut (or the cut without it), stretch the mark, fill it with an image, or animate it on its own (it moves only when someone reaches for it, or once on a touch screen).
+- Don't recolour the slash, show it without the cut (or the cut without it), stretch the mark, fill it with an image, or animate it again and again (it moves once on arrival, or when someone reaches for it).

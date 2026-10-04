@@ -16,8 +16,18 @@
   }
 
   /* The Fork mark is whole at rest and cut by hover or keyboard focus (CSS), its slash in the mark's own pink-to-blue. A touch screen can't hover,
-     so there the mark cuts itself once, when three quarters of it is in view, and stays cut. */
-  var marks = 0;
+     so there the mark cuts itself once, when three quarters of it is in view, and stays cut.
+     The header's mark is different: it cuts once when a visit arrives (the first page opened in the tab) and holds its
+     cut for the rest of the visit. On later pages the header's inline script has already set it cut and held. */
+  var marks = 0, ARRIVED = 'fk-arrived';
+  function arrive(el) {
+    if (el.classList.contains('is-held')) return;
+    var seen = false;
+    try { seen = window.sessionStorage.getItem(ARRIVED) === '1'; window.sessionStorage.setItem(ARRIVED, '1'); } catch (e) {}
+    if (seen || reduced()) { el.classList.add('is-held'); el.classList.add('is-cut'); return; }
+    // a beat whole, so the cut is seen, then it plays once and stays
+    setTimeout(function () { el.classList.add('is-cut'); }, 450);
+  }
   Fork.mark = function (el) {
     if (el.__fkMark) return;
     el.__fkMark = true;
@@ -29,6 +39,7 @@
       grad.id = id;
       each(el, '[stroke="' + ref + '"]', function (p) { p.setAttribute('stroke', 'url(#' + id + ')'); });
     }
+    if (el.closest && el.closest('.fk-header')) { arrive(el); return; }
     if (hover && hover.matches) return;
     if (!('IntersectionObserver' in window)) { el.classList.add('is-cut'); return; }
     var io = new IntersectionObserver(function (entries) {
@@ -113,12 +124,27 @@
     });
   };
 
+  /* The header's Menu: on phones the navigation folds behind it (CSS shows the button once .is-menu is set here). */
+  Fork.header = function (el) {
+    if (el.__fkHeader) return;
+    el.__fkHeader = true;
+    var button = el.querySelector('.fk-header__menu');
+    if (!button) return;
+    el.classList.add('is-menu');
+    function set(open) { el.classList.toggle('is-open', open); button.setAttribute('aria-expanded', open ? 'true' : 'false'); }
+    button.addEventListener('click', function () { set(!el.classList.contains('is-open')); });
+    el.addEventListener('keydown', function (ev) { if (ev.key === 'Escape' && el.classList.contains('is-open')) { set(false); button.focus(); } });
+    var wide = window.matchMedia ? window.matchMedia('(min-width: 721px)') : null;
+    if (wide) { var close = function () { if (wide.matches) set(false); }; if (wide.addEventListener) wide.addEventListener('change', close); else if (wide.addListener) wide.addListener(close); }
+  };
+
   Fork.enhance = function (root) {
+    each(root, '.fk-header', Fork.header);
     each(root, '.fk-mark', Fork.mark);
     each(root, '.fk-divider', Fork.divider);
     each(root, 'form[data-fk-form]', Fork.form);
   };
 
-  Fork.version = '1.1.0';
+  Fork.version = '1.2.0';
   window.Fork = Fork;
 })();

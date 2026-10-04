@@ -3,7 +3,7 @@
 The open call, set as a reading page: title, the deadlines, the text in numbered sections, and how to submit.
 
 ## Order
-- Compact SiteHeader (Call for Papers current); kicker and title (`display-l`).
+- SiteHeader (Call for Papers current); kicker and title (`display-l`).
 - Facts (ruled): Submission deadline, Word count, Artwork deadline, Contact.
 - OnThisPage beside the Prose: § 1 The Question (small-caps lead-in, the PullQuote continuing its last sentence), § 2 Disciplinary scope.
 - The ForkDivider's end mark, then the SubmitBox as § 3. SiteFooter.

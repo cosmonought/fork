@@ -5,7 +5,7 @@
 @font-face{font-family:'Newsreader Ext';src:url('/ds/fonts/NewsreaderExt-Italic.woff2') format('woff2');font-weight:200 800;font-style:italic;font-display:swap}
 @font-face{font-family:'IBM Plex Mono';src:url('/ds/fonts/IBMPlexMono-Regular.woff2') format('woff2');font-weight:400;font-style:normal;font-display:swap}
 @font-face{font-family:'IBM Plex Mono';src:url('/ds/fonts/IBMPlexMono-Medium.woff2') format('woff2');font-weight:500;font-style:normal;font-display:swap}
-:root,[data-theme="paper"]{--paper:#f7f7f4;--sheet:#ffffff;--ink:#111111;--ink-2:#4a4a45;--rule:#d9d9d2;--issue:#b4236f;--on-issue:var(--paper);--issue-tint:#efdde4;--focus:var(--ink)}
+:root,[data-theme="paper"]{--paper:#E3EAF0;--sheet:#F5F8FB;--ink:#17202C;--ink-2:#46515F;--rule:#C5CFD9;--issue:#b4236f;--on-issue:var(--paper);--issue-tint:#DDD2E1;--focus:var(--ink)}
 :root{--space-1:4px;--space-2:8px;--space-3:12px;--space-4:16px;--space-5:20px;--space-6:24px;--space-7:32px;--space-8:40px;--space-9:48px;--space-10:64px;--space-11:72px;--radius-0:0px;--page-max:1240px;--measure:680px;--gutter:clamp(16px, 4vw, 48px);--section-pad:clamp(40px, 5vw, 72px);--stroke-hairline:1px;--stroke-strong:2px;--stroke-divider:1.5px;--font-text:Newsreader, "Newsreader Ext", Georgia, "Times New Roman", serif;--font-mono:"IBM Plex Mono", ui-monospace, Menlo, Consolas, monospace}
 .cover-numeral{font-family:var(--font-text);font-size:280px;line-height:0.8;font-weight:400;letter-spacing:-0.04em}
 .display-xl{font-family:var(--font-text);font-size:76px;line-height:1.02;font-weight:400;letter-spacing:-0.015em}
