@@ -18,7 +18,7 @@ Fork is the Journal of Interchain Theory and Politics, an annual, open-access, p
 - **Dates**: "15 January 2027". Ranges with spaced en dashes: "500 – 15,000 words".
 - **Separators**: a middle dot with spaces between parts of a label or value: "Vol. 0 · Inaugural issue · Call for papers", "Annual · Open access".
 - **Actions**: verb first: "Read the call", "Submit work", "Register interest". Links between pages end "→", links to another site "↗".
-- **Placeholders**: anything not yet known is shown in brackets ("[Title of contribution]", "[Contributor]") or said plainly ("Announced with the issue."). Never invent titles, names, figures or dates.
+- **Placeholders**: on the public site, anything not yet known is said plainly ("Vol. 0 in preparation", "Announced with the issue.") or left out; bracketed stand-ins ("[Title of contribution]", "[Contributor]") belong only to drafts and templates for editors. Never invent titles, names, figures or dates.
 - **Citations**: Chicago author-date; author-title for humanities submissions. The same style the journal asks of contributors sets its own references.
 - No emoji, no exclamation marks.
 

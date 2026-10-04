@@ -6,7 +6,7 @@ A volume's table of contents: number, title, contributor, and what kind of piece
 - An `ol` opened by a 1px `ink` rule; each entry ends on a `rule` hairline.
 - Number in `index` mono, `issue`; title in `entry` (a link to the piece once it is published); contributor in italic `text-s`, `ink-2`; type in `meta` mono.
 - Types are the journal's own: Research article, Review essay, Intervention, Memoir, Manifesto, Whitepaper, Artwork, Translation.
-- Until a volume is announced, say so ("Announced with the issue.") and show its shape with bracketed placeholders, never invented titles or names.
+- Only for a volume whose contents are known: the public site shows no bracketed placeholders (the homepage's Status says "Vol. 0 in preparation" until then). The bracketed preview here is for editors' drafts. Never invent titles or names.
 
 ## Markup
 ```html
