@@ -117,7 +117,22 @@ html { scroll-padding-top: 84px; }
 .fk-footer__nav { display: flex; flex-wrap: wrap; gap: var(--space-2) var(--space-6); font: 400 12px/1.5 var(--font-mono); letter-spacing: .1em; text-transform: uppercase; }
 .fk-footer__nav a { color: var(--ink); text-decoration: none; }
 .fk-footer__nav a:hover { color: var(--issue); }
-.fk-footer__print { flex: 1 1 100%; margin: 0; }
+.fk-footer__print { flex: 1 1 auto; align-self: center; margin: 0; }
+/* the footer every Neta DAO site shares: the family's sites, then X and Discord as their own marks, on the small print's row */
+.fk-footer__family { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-2) var(--space-6); margin-left: auto; }
+.fk-footer__sites, .fk-footer__marks { display: flex; flex-wrap: wrap; align-items: center; margin: 0; padding: 0; list-style: none; }
+.fk-footer__sites { gap: var(--space-2) var(--space-6); padding-right: var(--space-6); border-right: var(--stroke-hairline) solid var(--rule); font: 400 12px/1.5 var(--font-mono); letter-spacing: .1em; text-transform: uppercase; }
+.fk-footer__sites a { color: var(--ink); text-decoration: none; }
+.fk-footer__sites a:hover { color: var(--issue); }
+.fk-footer__sites a[aria-current] { text-decoration: underline; text-decoration-color: var(--issue); text-decoration-thickness: 2px; text-underline-offset: 6px; }
+.fk-footer__marks { gap: var(--space-4); }
+.fk-footer__icon { display: grid; place-items: center; width: 32px; height: 32px; color: var(--ink); }
+.fk-footer__icon:hover { color: var(--issue); }
+.fk-footer__icon svg { display: block; width: 20px; height: 20px; }
+@media (max-width: 720px) {
+  .fk-footer__print { flex-basis: 100%; }
+  .fk-footer__family { margin-left: 0; }
+}
 
 /* ---- titles ---------------------------------------------------------------- */
 .fk-titleblock { display: flex; flex-direction: column; gap: 22px; max-width: 980px; }
